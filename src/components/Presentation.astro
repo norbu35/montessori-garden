@@ -1,0 +1,46 @@
+---
+import SectionLayout from "../layouts/SectionLayout.astro";
+import TileLinks from "./TileLinks.astro";
+---
+
+<SectionLayout title="Our Approach">
+  <p>
+    We are a steadily establishing family-run nursery school driven by the love
+    and passion of children and their development, and we believe in the natural
+    capabilities of each child to effortlessly learn with joy.
+  </p>
+  <p>
+    Our thoughtfully prepared environment is curated to support their individual
+    needs and interests and has a great influence in optimising education,
+    learning and development - setting a solid base for a lifelong joy of
+    learning.
+  </p>
+  <p>
+    All our staff share our core values and are with us because they are
+    committed to providing exceptional care that fosters love and trust. Every
+    child has the potential to be great, and they're here to help them discover
+    and develop their natural abilities.
+  </p>
+  <p>
+    We believe that education is not just about what children learn, but also
+    how they learn, and we're dedicated to providing an experience that will
+    stay with your child for life.
+  </p>
+  <div class="tile-links">
+    <TileLinks />
+  </div>
+</SectionLayout>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  p:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
+
+  .tile-links {
+    margin: 2.5em 0;
+    display: flex;
+    align-items: center;
+  }
+</style>

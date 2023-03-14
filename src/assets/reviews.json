@@ -1,0 +1,137 @@
+{
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "nullable": true
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  },
+  "data": [
+    {
+      "id": "0",
+      "text": "We viewed quite a few nurseries before deciding for Montessori Garden Nursery School. The small structure and high staff ratio really suits young children. It allows plenty of room for a very individual approach. I feel that our sons personality has been well observed and understood. Activities are tailored to the needs and interest of the kids. The Montessori approach pushes their confidence as they get all the necessary support to do things independently. There are regular visits to Hampstead Heath. The overall atmosphere is very positive and the team is well balanced in terms of personalities and backgrounds. We have definitely found the right place for our son – would highly recommend!",
+      "date": "2017-11-04",
+      "name": "Katharina",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "1",
+      "text": "Highly recommend this Montessori nursery. The staff are excellent, especially the principal Natasha. I have felt they’ve gone above and beyond to care for our daughter (during settling in, potty training) and with the activities (Hampstead heath visits, playgrounds visits, music, etc…). The children are empowered by learning to do so much by themselves. Very happy",
+      "date": "2017-08-11",
+      "name": "Dianne",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "2",
+      "text": "This is such a wonderful little nursery. My daughter settled in really well and the staff are incredibly warm, kind and committed.",
+      "date": "2017-07-25",
+      "name": "Hannah",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "3",
+      "text": "It’s a good nursery. Very clean, open space with mixed aged kids. Lots of activities and my kid seems happy going there. Staff are all good and very professional. The area outside is not very big but it’s nice and tidy so kids can play. They have lots of activities outside in a park. Overall we are satisfied with the service.",
+      "date": "2016-10-01",
+      "name": "Mila",
+      "url": null,
+      "visible": false
+    },
+    {
+      "id": "4",
+      "text": "We had an amazing evening. M read two books to L and then he had to go to bed. But he wanted more stories. So we climbed up in his bed and I started talking about his colour mixing with the bottles in the nursery. He took over the story and for about 20 minutes kept telling (shouting) all kinds of nursery stories in an almost ecstatic way. It was really amazing. I even recorded a bit of it. So just that you know, L seems to have great memories about the Montessori Garden School. I wish you a great summer.",
+      "date": "2017-06-27",
+      "name": "Tamas",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "5",
+      "text": "Natasha, … P has had a wonderful time at the nursery and we are very grateful to you and the rest of the staff. She talks about you all, all of the time and even wants to be there at the weekend and on her days off. So I know how much she’ll miss you all",
+      "date": "2017-03-31",
+      "name": "Piers",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "6",
+      "text": "I want to say thank you to all of you for letting us be their celebrating L birthday party. I hope everyone has had a good time. You all are an amazing team. Thanks again!!!",
+      "date": "2017-03-13",
+      "name": "Charley",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "7",
+      "text": "Nick and I want to recognise and pass a very special thanks to Laura this week for the care she provided E with her potty training. Laura was incredibly kind, positive and empathetic and we are very grateful. She is very smiley and bubbly when she greets the children in the morning. All very appreciated!",
+      "date": "2017-02-04",
+      "name": "Di & Nick",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "8",
+      "text": "We had a look at many nurseries in the area, and very happy to have found this one. We feel lucky that our son is here and thriving. He is 21 months now and loves going to nursery. I feel very confident that he is in the best environment while I am at work. He is learning so many things and a very happy boy. The ratio of children and teachers is great. I have seen the children have lunch together, prepare the glasses, cutlery and tables, and carry plates of yummy food to the table, and tidy up when they are finished. I have joined in jazz music class with them. It's fantastic! The teachers are very good and care for all the children very well. I have recommended the nursery to others. If you think the Montessori method is suited to your child, I would recommend this nursery.",
+      "date": "2017-12-04",
+      "name": "M M",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "9",
+      "text": "My son joined the nursery from when it was opened and is currently still at there. I am extremely impressed by the care provided and how neat the environment is. The nursery staff are very nice and accommodating to parent/child's needs. I would definitely recommend this nursery to everyone that needs a safe and friendly environment for their little one.",
+      "date": "2015-12-18",
+      "name": "Ola A",
+      "url": null,
+      "visible": true
+    },
+    {
+      "id": "10",
+      "text": "Wonderful nursery with caring teachers and great activities. I looked at a lot of nurseries and knew immediately that this one was right for us. Max has learned so much from his time here and just loves it. Thank you so much to all the lovely staff there.",
+      "date": "2020-11-26",
+      "name": "Lydia Lindley",
+      "url": "https://www.facebook.com/lydia.lindley/posts/pfbid02akNwdEgVYPUeEPYBjCyeVkvCigzrYoAY2Twr8rZcKGAsmVciJdXurNdmwKBdUkdbl",
+      "visible": true
+    },
+    {
+      "id": "11",
+      "text": "Our little girl spent 18 months at the Montessori Garden Nursery and we couldn’t be happier with the quality and care provided. All staff are fantastic and are doing a brilliant job. Thank you – you have helped turn our girl into a confident and incredibly happy child!",
+      "date": "2019-08-29",
+      "name": "Adèle Mortier",
+      "url": "https://www.facebook.com/adele.mortier1/posts/pfbid0HgwFT43S6yAXFNjgY2kxQfPqqsTLp8U7uC4gsNEBE937M6wRXCZ5wo57BcYpaXh6l",
+      "visible": true
+    },
+    {
+      "id": "12",
+      "text": "Choosing a nursery for your little one can be incredibly stressful...after-all, we only want the best for our children. As a working parents, we need to feel comfortable that our children are being looked after by an exceptional team. It is also important that the hours of care fit with your schedule and accommodate your busy life. The moment we stepped into Montessori Garden Nursery, we knew that we had found the perfect place for our child! The space is impeccable, organized, clean, tidy but packed full of fun and learning. The staff are warm and welcoming, and over time have become our extended London family. Our son feels loved and cared for by people genuinely interested in his well being and development. The children are lovely and well adjusted, in part due to the peaceful and engaging environment of their classroom.We could not be happier with our choice of nursery school!",
+      "date": "2019-07-30",
+      "name": "Sachli Zare",
+      "url": "https://www.facebook.com/sachlizare/posts/pfbid0AvsYciBd6ecHGsTZ25fuhSCMU9wh3TYrM3sz5nt2eNEBeydig9tNEK5cSJefUdhLl",
+      "visible": true
+    },
+    {
+      "id": "13",
+      "text": "When the lockdown started, the kind people at the Montessori Garden Nursery School Kentish Town made each child a care box to take home. It included familiar activities for the kids to play with - building on the Montessori principles. Many months later, Rowen continues to play with them. Here he is doing some sorting. Thanks everyone for taking such good care of our loved ones. Wishing you continued success. Stay safe.",
+      "date": "2020-06-23",
+      "name": "Ramez Hanafi",
+      "url": "https://www.facebook.com/ramez.hanafi/posts/pfbid0FQTt7DYozbXVcjaU1LunJ6Ce4LZy7diZEzkq3ddHheq4w248kJKeueyHsJoJ4b7Fl",
+      "visible": true
+    }
+  ]
+}

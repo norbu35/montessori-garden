@@ -1,0 +1,76 @@
+---
+import { Image } from "@astrojs/image/components";
+import Nav from "./Nav.astro";
+import icon_menu from "../assets/icons/icon-menu.png";
+---
+
+<header>
+  <div class="banner">
+    <div class="title">
+      <h1 class="main">Montessori Garden</h1>
+      <h1 class="sub">Kentish Town</h1>
+    </div>
+    <button type="button" aria-hidden="true" class="menu-button">
+      <Image src={icon_menu} alt="menu icon" width={361} height={216} />
+    </button>
+  </div>
+  <Nav />
+</header>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  header {
+    width: 100vw;
+    height: $ht-header;
+    background-color: white;
+
+    .banner {
+      justify-content: space-between;
+      display: flex;
+      height: 100%;
+      padding: 0 1em 0 2em;
+
+      .logo {
+        width: 17%;
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $green;
+
+        .main {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          height: 50%;
+          font-size: 2.125rem;
+          font-family: "Caveat";
+          font-weight: 600;
+        }
+
+        .sub {
+          padding-left: 3px;
+          font-size: 1.25rem;
+          font-family: "Mukta";
+          font-weight: 500;
+        }
+      }
+
+      .menu-button {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border: none;
+        background: none;
+
+        img {
+          width: 30px;
+          height: 25px;
+        }
+      }
+    }
+  }
+</style>

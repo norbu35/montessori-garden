@@ -1,0 +1,73 @@
+---
+import "@fontsource/handlee";
+import reviews from "../assets/reviews.json";
+
+interface Review {
+  id: string;
+  text: string;
+  date: string;
+  name: string;
+  url?: string;
+  visible: boolean;
+}
+---
+
+<section class="container">
+  <swiper-container init="false">
+    {
+      reviews.data
+        .filter((review: Review) => review.visible)
+        .map((review: Review) => (
+          <swiper-slide key={review.id}>
+            <p class="text">{review.text}</p>
+            {review.url ? (
+              <p class="name">
+                <a href={review.url}>{review.name}</a>
+              </p>
+            ) : (
+              <p class="name">{review.name}</p>
+            )}
+          </swiper-slide>
+        ))
+    }
+  </swiper-container>
+</section>
+
+<script src="../scripts/swiper.js"></script>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  .container {
+    background-color: $green;
+    margin: auto;
+  }
+
+  swiper-container {
+    width: 90vw;
+  }
+
+  swiper-slide {
+    margin: 1rem;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    background-color: $purple;
+    color: white;
+
+    a,
+    a:visited {
+      color: white;
+    }
+
+    .text {
+      padding: 2rem;
+      font-family: "Handlee";
+      line-height: 1.125em;
+    }
+    .name,
+    .date {
+      padding: 0 2rem 2rem;
+      text-align: right;
+    }
+  }
+</style>

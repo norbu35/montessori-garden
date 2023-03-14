@@ -1,0 +1,26 @@
+---
+interface Props {
+  title?: string;
+  bgColor?: string;
+}
+
+const { title, bgColor = "white" } = Astro.props;
+---
+
+<section class="container">
+  <h1>{title}</h1>
+  <slot />
+</section>
+
+<style lang="scss" define:vars={{ bgColor }}>
+  .container {
+    height: 100vh;
+    padding: 0 1em;
+    background-color: var(--bgColor);
+
+    h1 {
+      margin: 0.5em 0;
+      font-size: 2rem;
+    }
+  }
+</style>

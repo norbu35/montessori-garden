@@ -1,0 +1,30 @@
+// Colours
+$green: #12664f;
+$darkblue: #12264f;
+$lightblue: #077187;
+$purple: #2b2d42;
+$orange: #eb422c;
+
+@mixin bg-opac($color, $opac) {
+  background-color: rgba($color, calc($opac / 10));
+}
+
+// Sizes
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// dimensions
+$ht-header: 70px;
+
+// fonts
+$font-heading: "Lato";
+
+@mixin flex-center() {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

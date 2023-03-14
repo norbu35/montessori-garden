@@ -5,11 +5,32 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
-    "astro": "^2.0.18"
+    "@astrojs/image": "^0.16.0",
+    "@fontsource/caveat": "^4.5.10",
+    "@fontsource/handlee": "^4.5.9",
+    "@fontsource/lato": "^4.5.10",
+    "@fontsource/mukta": "^4.5.10",
+    "@fontsource/open-sans": "^4.5.14",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "astro": "^2.1.2",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "sharp": "^0.31.3",
+    "swiper": "^9.1.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "sass": "^1.58.3",
+    "typescript": "^4.9.5"
   }
 }

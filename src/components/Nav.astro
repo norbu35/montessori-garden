@@ -1,0 +1,44 @@
+---
+---
+
+<nav>
+  <ul class="nav__links">
+    <li class="link">Home</li>
+    <li class="link">Our Nursery</li>
+    <li class="link">Enrollment</li>
+    <li class="link">News & Events</li>
+    <li class="link">Contact</li>
+    <li class="link">Visit Us</li>
+    <li class="link">Parents' Corner</li>
+    <li class="link">Staff Area</li>
+  </ul>
+  <ul class="nav__links nav__links--sub">
+    <li class="link">Curriculum</li>
+    <li class="link">A typical day</li>
+    <li class="link">Our qualified staff</li>
+  </ul>
+</nav>
+
+<style lang="scss">
+  nav {
+    display: none;
+    width: 100vw;
+    height: 87vh;
+
+    .nav__links {
+      float: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1em;
+      width: 50%;
+      padding: 1em;
+
+      .link {
+        display: flex;
+        align-items: center;
+        height: 1.5em;
+      }
+    }
+  }
+</style>
