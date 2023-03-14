@@ -1,0 +1,18 @@
+---
+const { text } = Astro.props;
+---
+
+<button>{text}</button>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  button {
+    width: 135px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: $darkblue;
+    font-size: 1rem;
+    color: white;
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
 import img from "../assets/images/home/hero.jpg";
+import Button from "./Button.astro";
 ---
 
 <section>
@@ -19,72 +20,88 @@ import img from "../assets/images/home/hero.jpg";
       </p>
       <p>Come and see the difference for yourself!</p>
     </div>
+    <div class="button">
+      <Button text="Visit Us" />
+    </div>
+  </div>
 
-    <style lang="scss">
-      @import "../styles/vars.scss";
+  <script>
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  </script>
 
-      section {
-        width: 100vw;
-        height: calc(100vh - $ht-header);
+  <style lang="scss">
+    @import "../styles/vars.scss";
+
+    section {
+      width: 100vw;
+      height: calc(100vh - $ht-header);
+      height: calc(var(--vh, 1vh) * 100 - $ht-header);
+      background-color: $green;
+
+      .heading {
         display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 25%;
+        padding-left: 2rem;
         background-color: $green;
+        font-size: 2rem;
+        font-family: $font-heading;
+        color: white;
 
-        .heading {
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          height: 25%;
-          padding-left: 2rem;
-          background-color: $green;
-          font-size: 2rem;
-          font-family: $font-heading;
-          color: white;
-
-          h1 {
-            max-width: 400px;
-            margin-bottom: 5px;
-            line-height: 1.125em;
-          }
-        }
-
-        .image-container {
-          position: relative;
-          overflow: hidden;
-          height: 45%;
-          margin-right: 2rem;
-
-          img {
-            position: absolute;
-            top: 50%;
-            left: 52%;
-            -o-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            -moz-transform: translate(-50%, -50%);
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            max-width: 1024px;
-          }
-        }
-
-        .subtext {
-          display: flex;
-          justify-content: center;
-          padding: 1rem;
-          background-color: $green;
-          font-size: 1.125rem;
+        h1 {
+          max-width: 400px;
+          margin-bottom: 5px;
           line-height: 1.125em;
-          font-family: $font-heading;
-          color: white;
-
-          i {
-            font-style: italic;
-          }
-        }
-
-        .subtext p:not(:last-child) {
-          margin-bottom: 12px;
         }
       }
-    </style>
-  </div>
+
+      .image-container {
+        position: relative;
+        overflow: hidden;
+        height: 40%;
+        margin-right: 2rem;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 52%;
+          -o-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          max-width: 1024px;
+        }
+      }
+
+      .subtext {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        display: flex;
+        padding: 1rem 2rem 0 2rem;
+        background-color: $green;
+        font-size: 1.125rem;
+        line-height: 1.125em;
+        font-family: $font-heading;
+        color: white;
+
+        i {
+          font-style: italic;
+        }
+
+        .button {
+          margin-top: 1rem;
+        }
+      }
+
+      .subtext p:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  </style>
 </section>
