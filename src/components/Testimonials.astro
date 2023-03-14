@@ -1,23 +1,14 @@
 ---
 import "@fontsource/handlee";
 import reviews from "../assets/reviews.json";
-
-interface Review {
-  id: string;
-  text: string;
-  date: string;
-  name: string;
-  url?: string;
-  visible: boolean;
-}
 ---
 
 <section class="container">
   <swiper-container init="false">
     {
       reviews.data
-        .filter((review: Review): boolean => review.visible)
-        .map((review: Review): Review[] => (
+        .filter((review) => review.visible)
+        .map((review) => (
           <swiper-slide key={review.id}>
             <p class="text">{review.text}</p>
             {review.url ? (
