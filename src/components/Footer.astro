@@ -5,27 +5,15 @@ import icon_address from "../assets/icons/icon-address.png";
 import icon_email from "../assets/icons/icon-email.png";
 ---
 
-<footer>
+<footer class="container">
   <div class="banner">Montessori Garden</div>
   <div class="contact">
     <div class="row">
-      <Image
-        class="icon"
-        src={icon_phone}
-        alt="phone icon"
-        width={70}
-        height={70}
-      />
-      <div class="text">020 3637 5508</div>
+      <Image class="icon" src={icon_phone} alt="" width={70} height={70} />
+      <div class="text"><a href="tel:02034415860">020 3441 5860</a></div>
     </div>
     <div class="row">
-      <Image
-        class="icon"
-        src={icon_address}
-        alt="address icon"
-        width={70}
-        height={70}
-      />
+      <Image class="icon" src={icon_address} alt="" width={70} height={70} />
       <div class="text">
         7 Dowdney Close,<br />
         Bartholomew Road,<br />
@@ -33,73 +21,91 @@ import icon_email from "../assets/icons/icon-email.png";
       </div>
     </div>
     <div class="row">
-      <Image
-        class="icon"
-        src={icon_email}
-        alt="email icon"
-        width={70}
-        height={70}
-      />
-      <div class="text">contact@montessorigarden.co.uk</div>
+      <Image class="icon" src={icon_email} alt="" width={70} height={70} />
+      <div class="text">
+        <a href="mailto:contact@montessorigarden.co.uk"
+          >contact@montessorigarden.co.uk</a
+        >
+      </div>
     </div>
-    <hr />
-    <nav>
-      <ul class="nav__links">
-        <li>Contact & Location</li>
-        <li>Come for a visit!</li>
-        <li>Latest News</li>
-        <li>Events</li>
-        <li>Parents' Corner</li>
-        <li>Staff Area</li>
-        <li>Our qualified Staff</li>
-        <li>A typical day</li>
-        <li>Reviews & Comments</li>
-        <li>Admissions</li>
-        <li>Services & Fees</li>
-      </ul>
-    </nav>
-    <hr />
-    <div class="bottom">
-      <ul>
-        <li>Sitemap</li>
-        <li>Privacy Policy</li>
-        <li>Cookie Policy</li>
-      </ul>
-      <div>&copy; 2023 | Montessori Garden | Erdene Ltd.</div>
-      <div>By Norbu with ♡</div>
-    </div>
+  </div>
+  <hr />
+  <nav class="footer-nav">
+    <ul class="nav__links">
+      <li>Contact & Location</li>
+      <li>Come for a visit!</li>
+      <li>Latest News</li>
+      <li>Events</li>
+      <li>Parents' Corner</li>
+      <li>Staff Area</li>
+      <li>Our qualified Staff</li>
+      <li>A typical day</li>
+      <li>Reviews & Comments</li>
+      <li>Admissions</li>
+      <li>Services & Fees</li>
+    </ul>
+  </nav>
+  <hr />
+  <div class="bottom">
+    <ul class="bottom-links">
+      <li>Sitemap</li>
+      <li>Privacy Policy</li>
+      <li>Cookie Policy</li>
+    </ul>
+    <div>&copy; 2023 | Montessori Garden | Erdene Ltd.</div>
+    <div>By Norbu with ♡</div>
   </div>
 
   <style lang="scss">
     @import "../styles/vars.scss";
     $banner: url("../assets/images/footer/banner.png");
 
-    footer {
+    .container {
       background-color: $green;
       color: white;
 
       .banner {
-        display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-left: -1em;
         height: 100px;
         background-image: $banner;
         background-size: cover;
         background-position: right;
-        color: black;
+        font-family: "Caveat";
+        font-size: 2em;
+        font-weight: 700;
+        color: $green;
       }
 
       .contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        display: flex;
+        margin: 1em auto;
+        max-width: $sm;
+
         .row {
-          display: flex;
           align-items: center;
+          display: flex;
           width: 300px;
-          margin: 1em auto;
+
+          .text {
+            width: 100%;
+          }
         }
 
-        img {
-          object-fit: contain;
+        a,
+        a:visited {
+          color: white;
+        }
+
+        .icon {
           width: 40px;
+          height: 40px;
+          object-fit: contain;
         }
 
         .text {
@@ -107,28 +113,37 @@ import icon_email from "../assets/icons/icon-email.png";
         }
       }
 
-      nav {
+      hr {
+        max-width: $md;
+        margin: 0 auto;
+        border: 1px solid white;
+      }
+
+      .footer-nav {
         padding: 0 1em;
       }
 
       .nav__links {
-        display: flex;
         flex-flow: column wrap;
         column-gap: 1em;
         row-gap: 5px;
-        height: 200px;
-        padding: 1em 0;
+        display: flex;
+        margin: 1em auto;
+        max-width: $sm;
+        height: 150px;
       }
 
       .bottom {
-        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.5em;
+        display: flex;
+        padding: 1em;
+        font-size: 0.825em;
 
-        ul {
-          display: flex;
+        .bottom-links {
           gap: 1em;
+          display: flex;
         }
       }
     }

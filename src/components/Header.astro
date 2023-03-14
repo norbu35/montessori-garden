@@ -10,8 +10,14 @@ import icon_menu from "../assets/icons/icon-menu.png";
       <h1 class="main">Montessori Garden</h1>
       <h1 class="sub">Kentish Town</h1>
     </div>
-    <button type="button" aria-hidden="true" class="menu-button">
-      <Image src={icon_menu} alt="menu icon" width={361} height={216} />
+    <button type="button" class="menu-btn">
+      <Image
+        class="menu-icon"
+        src={icon_menu}
+        alt="menu button"
+        width={361}
+        height={216}
+      />
     </button>
   </div>
   <Nav />
@@ -36,15 +42,15 @@ import icon_menu from "../assets/icons/icon-menu.png";
       }
 
       .title {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
+        flex-direction: column;
+        display: flex;
         color: $green;
 
         .main {
-          display: flex;
           justify-content: flex-start;
           align-items: center;
+          display: flex;
           height: 50%;
           font-size: 2.125rem;
           font-family: "Caveat";
@@ -59,14 +65,14 @@ import icon_menu from "../assets/icons/icon-menu.png";
         }
       }
 
-      .menu-button {
+      .menu-btn {
         justify-content: center;
         align-items: center;
         display: flex;
         border: none;
         background: none;
 
-        img {
+        .menu-icon {
           width: 30px;
           height: 25px;
         }

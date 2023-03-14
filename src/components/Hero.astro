@@ -1,15 +1,23 @@
 ---
 import { Image } from "@astrojs/image/components";
-import img from "../assets/images/home/hero.jpg";
 import Button from "./Button.astro";
+import img from "../assets/images/home/hero.jpg";
 ---
 
-<section>
+<section class="container">
   <div class="heading">
-    <h1>Set your child on a path of lifelong curiosity and independence.</h1>
+    <h1 class="heading-text">
+      Set your child on a path of lifelong curiosity and independence.
+    </h1>
   </div>
-  <div class="image-container">
-    <Image class="image" src={img} alt="hero image" width={770} height={768} />
+  <div class="img-container">
+    <Image
+      class="img"
+      src={img}
+      alt="children running on a field"
+      width={770}
+      height={768}
+    />
   </div>
   <div class="subtext">
     <div>
@@ -20,9 +28,7 @@ import Button from "./Button.astro";
       </p>
       <p>Come and see the difference for yourself!</p>
     </div>
-    <div class="button">
-      <Button text="Visit Us" />
-    </div>
+    <Button text="Visit Us" />
   </div>
 
   <script>
@@ -35,16 +41,16 @@ import Button from "./Button.astro";
   <style lang="scss">
     @import "../styles/vars.scss";
 
-    section {
+    .container {
       width: 100vw;
       height: calc(100vh - $ht-header);
       height: calc(var(--vh, 1vh) * 100 - $ht-header);
       background-color: $green;
 
       .heading {
-        display: flex;
         justify-content: flex-end;
         align-items: center;
+        display: flex;
         height: 25%;
         padding-left: 2rem;
         background-color: $green;
@@ -52,20 +58,20 @@ import Button from "./Button.astro";
         font-family: $font-heading;
         color: white;
 
-        h1 {
-          max-width: 400px;
+        .heading-text {
           margin-bottom: 5px;
+          max-width: 400px;
           line-height: 1.125em;
         }
       }
 
-      .image-container {
+      .img-container {
         position: relative;
         overflow: hidden;
-        height: 40%;
         margin-right: 2rem;
+        height: 40%;
 
-        img {
+        .img {
           position: absolute;
           top: 50%;
           left: 52%;
@@ -84,8 +90,8 @@ import Button from "./Button.astro";
         justify-content: space-evenly;
         align-items: flex-end;
         display: flex;
-        height: 35%;
         max-width: 415px;
+        height: 35%;
         padding: 1rem 2rem 0;
         background-color: $green;
         font-size: 1.125rem;
@@ -95,9 +101,6 @@ import Button from "./Button.astro";
 
         i {
           font-style: italic;
-        }
-
-        .button {
         }
       }
 
