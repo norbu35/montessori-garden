@@ -4,7 +4,7 @@ import reviews from "../assets/reviews.json";
 ---
 
 <section class="container">
-  <h1>Parents' Thoughts</h1>
+  <h1 class="heading">Parents' Thoughts</h1>
   <swiper-container init="false">
     {
       reviews.data
@@ -34,14 +34,14 @@ import reviews from "../assets/reviews.json";
 
   .container {
     flex-direction: column;
-    height: 100vh;
+    display: flex;
+    height: 90vh;
     background-color: $green;
     overflow: hidden;
-    margin: auto;
 
-    h1 {
+    .heading {
       display: block;
-      margin: 1.5rem 1rem;
+      margin: 2rem 1rem;
       font-size: 2rem;
       color: white;
     }
@@ -51,10 +51,10 @@ import reviews from "../assets/reviews.json";
     }
 
     swiper-slide {
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-evenly;
       align-items: flex-end;
       display: flex;
-      flex-direction: column;
       border: 1px solid lightgrey;
       border-radius: 15px;
       padding: 2em;
@@ -69,11 +69,6 @@ import reviews from "../assets/reviews.json";
       .text {
         font-family: "Handlee";
         line-height: 1.25em;
-      }
-
-      .name {
-        margin: 1em 0;
-        text-align: right;
       }
     }
   }
