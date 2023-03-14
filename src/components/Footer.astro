@@ -61,6 +61,10 @@ import icon_email from "../assets/icons/icon-email.png";
     $banner: url("../assets/images/footer/banner.png");
 
     .container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      display: flex;
       background-color: $green;
       color: white;
 
@@ -68,7 +72,7 @@ import icon_email from "../assets/icons/icon-email.png";
         justify-content: center;
         align-items: center;
         display: flex;
-        margin-left: -1em;
+        width: 100%;
         height: 100px;
         background-image: $banner;
         background-size: cover;
@@ -84,17 +88,12 @@ import icon_email from "../assets/icons/icon-email.png";
         align-items: center;
         gap: 0.5em;
         display: flex;
-        margin: 1em auto;
-        max-width: $sm;
+        margin: 1em;
 
         .row {
           align-items: center;
           display: flex;
           width: 300px;
-
-          .text {
-            width: 100%;
-          }
         }
 
         a,
@@ -114,13 +113,14 @@ import icon_email from "../assets/icons/icon-email.png";
       }
 
       hr {
+        width: 100%;
         max-width: $md;
-        margin: 0 auto;
         border: 1px solid white;
       }
 
       .footer-nav {
-        padding: 0 1em;
+        width: 90%;
+        max-width: 400px;
       }
 
       .nav__links {
@@ -128,8 +128,7 @@ import icon_email from "../assets/icons/icon-email.png";
         column-gap: 1em;
         row-gap: 5px;
         display: flex;
-        margin: 1em auto;
-        max-width: $sm;
+        margin: 1em;
         height: 150px;
       }
 

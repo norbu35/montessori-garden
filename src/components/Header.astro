@@ -1,6 +1,5 @@
 ---
 import { Image } from "@astrojs/image/components";
-import Nav from "./Nav.astro";
 import icon_menu from "../assets/icons/icon-menu.png";
 ---
 
@@ -20,8 +19,37 @@ import icon_menu from "../assets/icons/icon-menu.png";
       />
     </button>
   </div>
-  <Nav />
+  <nav class="nav" id="nav">
+    <ul class="nav__links">
+      <li class="link">Home</li>
+      <li class="link">Our Nursery</li>
+      <li class="link">Enrollment</li>
+      <li class="link">News & Events</li>
+      <li class="link">Contact</li>
+      <li class="link">Visit Us</li>
+      <li class="link">Parents' Corner</li>
+      <li class="link">Staff Area</li>
+    </ul>
+    <ul class="nav__links nav__links--sub">
+      <li class="link">Curriculum</li>
+      <li class="link">A typical day</li>
+      <li class="link">Our qualified staff</li>
+    </ul>
+  </nav>
 </header>
+
+<script>
+  const button = document.querySelector(".menu-btn");
+  const nav = document.getElementById("nav");
+
+  button.addEventListener("click", () => {
+    if (nav.style.height == "0px") {
+      nav.style.height = "50vh";
+    } else {
+      nav.style.height = "0px";
+    }
+  });
+</script>
 
 <style lang="scss">
   @import "../styles/vars.scss";
@@ -76,6 +104,34 @@ import icon_menu from "../assets/icons/icon-menu.png";
           width: 30px;
           height: 25px;
         }
+      }
+    }
+    .nav {
+      z-index: 2;
+      position: absolute;
+      overflow: hidden;
+      transition: height 200ms ease;
+      background-color: white;
+      width: 100vw;
+      height: 0px;
+
+      .nav__links {
+        float: right;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1em;
+        width: 50%;
+        height: inherit;
+        padding: 1em;
+
+        .link {
+          align-items: center;
+          height: 1.5em;
+        }
+      }
+
+      .nav__links--sub {
+        display: none;
       }
     }
   }
