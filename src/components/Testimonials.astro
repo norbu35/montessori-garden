@@ -16,8 +16,8 @@ interface Review {
   <swiper-container init="false">
     {
       reviews.data
-        .filter((review: Review) => review.visible)
-        .map((review: Review) => (
+        .filter((review: Review): boolean => review.visible)
+        .map((review: Review): Review[] => (
           <swiper-slide key={review.id}>
             <p class="text">{review.text}</p>
             {review.url ? (
