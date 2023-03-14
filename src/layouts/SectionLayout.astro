@@ -13,13 +13,15 @@ const { title, bgColor = "white" } = Astro.props;
 </section>
 
 <style lang="scss" define:vars={{ bgColor }}>
+  @import "../styles/vars.scss";
+
   .container {
     height: 100vh;
     padding: 0 1em;
     background-color: var(--bgColor);
 
     h1 {
-      margin: 0.5em 0;
+      margin: 1.5rem 0;
       font-size: 2rem;
     }
   }
