@@ -46,26 +46,40 @@ import icon_menu from "../assets/icons/icon-menu.png";
   const button = document.querySelector(".menu-btn");
   const linksExpand = document.querySelectorAll(".js-link--hover");
 
+  function toggleNavExpand() {
+    nav?.classList.toggle("nav--expanded");
+  }
+
+  function onNavClose() {
+    nav?.classList.remove("nav--expanded");
+  }
+
+  function toggleLinkExpand(e: Event): void {
+    const target = e.target as HTMLElement;
+    target.children[0].classList.toggle("sublinks--expanded");
+  }
+
+  function onLinkClose(): void {
+    const target = document.querySelector(".sublinks");
+    target?.classList.remove("sublinks--expanded");
+  }
+
   if (button === null || nav === null) {
     throw Error;
   } else {
-    button.addEventListener("click", () => {
-      nav.classList.toggle("nav--expanded");
-    });
-  }
-
-  function expandMenu(e: Event): void {
-    const target = e.target as HTMLElement;
-    target.children[0].classList.toggle("sublinks--expanded");
+    button.addEventListener("click", toggleNavExpand);
   }
 
   if (linksExpand === null) {
     throw Error;
   } else {
     linksExpand.forEach((el) => {
-      el.addEventListener("click", expandMenu, false);
+      el.addEventListener("click", toggleLinkExpand, false);
     });
   }
+
+  window.addEventListener("scroll", onNavClose);
+  window.addEventListener("scroll", onLinkClose);
 </script>
 
 <style lang="scss">
