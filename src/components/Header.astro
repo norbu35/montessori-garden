@@ -3,7 +3,7 @@ import { Image } from "@astrojs/image/components";
 import icon_menu from "../assets/icons/icon-menu.png";
 ---
 
-<header>
+<header class="container">
   <div class="banner">
     <div class="title">
       <h1 class="main">Montessori Garden</h1>
@@ -20,9 +20,17 @@ import icon_menu from "../assets/icons/icon-menu.png";
     </button>
   </div>
   <nav class="nav" id="nav">
-    <ul class="nav__links">
+    <ul class="links">
       <li class="link">Home</li>
-      <li class="link">Our Nursery</li>
+      <li class="link js-link--hover">
+        Our Nursery
+        <ul class="sublinks">
+          <li class="link">The Montessori Method</li>
+          <li class="link">Curriculum</li>
+          <li class="link">A Typical Day</li>
+          <li class="link">Our Qualified Staff</li>
+        </ul>
+      </li>
       <li class="link">Enrollment</li>
       <li class="link">News & Events</li>
       <li class="link">Contact</li>
@@ -30,26 +38,32 @@ import icon_menu from "../assets/icons/icon-menu.png";
       <li class="link">Parents' Corner</li>
       <li class="link">Staff Area</li>
     </ul>
-    <ul class="nav__links nav__links--sub">
-      <li class="link">Curriculum</li>
-      <li class="link">A typical day</li>
-      <li class="link">Our qualified staff</li>
-    </ul>
   </nav>
 </header>
 
 <script>
-  const button = document.querySelector(".menu-btn");
   const nav = document.getElementById("nav");
+  const button = document.querySelector(".menu-btn");
+  const linksExpand = document.querySelectorAll(".js-link--hover");
+
   if (button === null || nav === null) {
     throw Error;
   } else {
     button.addEventListener("click", () => {
-      if (nav.style.height == "0px") {
-        nav.style.height = "45vh";
-      } else {
-        nav.style.height = "0px";
-      }
+      nav.classList.toggle("nav--expanded");
+    });
+  }
+
+  function expandMenu(e: Event): void {
+    const target = e.target as HTMLElement;
+    target.children[0].classList.toggle("sublinks--expanded");
+  }
+
+  if (linksExpand === null) {
+    throw Error;
+  } else {
+    linksExpand.forEach((el) => {
+      el.addEventListener("click", expandMenu, false);
     });
   }
 </script>
@@ -57,7 +71,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
 <style lang="scss">
   @import "../styles/vars.scss";
 
-  header {
+  .container {
     width: 100vw;
     height: $ht-header;
     background-color: white;
@@ -79,17 +93,18 @@ import icon_menu from "../assets/icons/icon-menu.png";
         color: $green;
 
         .main {
-          justify-content: flex-start;
           align-items: center;
           display: flex;
-          height: 50%;
-          font-size: 2.125rem;
+          height: 60%;
+          font-size: 2.25rem;
           font-family: "Caveat";
           font-weight: 600;
         }
 
         .sub {
-          padding-left: 3px;
+          align-items: center;
+          display: flex;
+          height: 40%;
           font-size: 1.25rem;
           font-family: "Mukta";
           font-weight: 500;
@@ -98,6 +113,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
 
       .menu-btn {
         justify-content: center;
+        display: none;
         align-items: center;
         display: flex;
         border: none;
@@ -109,24 +125,26 @@ import icon_menu from "../assets/icons/icon-menu.png";
         }
       }
     }
+
     .nav {
       z-index: 2;
       position: absolute;
       overflow: hidden;
-      transition: height 250ms ease-in-out;
+      transition: height 400ms;
       border-top: 2px solid $green;
       background-color: white;
       width: 100vw;
-      height: 0px;
+      height: 0;
       color: $green;
 
-      .nav__links {
+      .links {
+        z-index: 1;
+        position: aboslute;
         float: right;
         flex-direction: column;
         display: flex;
         gap: 1em;
         width: 50%;
-        height: inherit;
         padding: 1em 1.5em;
 
         .link {
@@ -135,11 +153,34 @@ import icon_menu from "../assets/icons/icon-menu.png";
           display: flex;
           height: 1.5em;
         }
-      }
 
-      .nav__links--sub {
-        display: none;
+        .sublinks {
+          z-index: 0;
+          position: absolute;
+          right: 50%;
+          top: 0;
+          gap: 1em;
+          flex-direction: column;
+          display: flex;
+          overflow: hidden;
+          transition: width 400ms, padding 200ms ease-in-out;
+          width: 0;
+          padding: 1em 0;
+          white-space: nowrap;
+        }
+
+        .sublinks--expanded {
+          transition: width 400ms, padding 200ms ease-in-out;
+          padding: 1em 0.5em;
+          width: 50%;
+          white-space: nowrap;
+        }
       }
+    }
+
+    .nav--expanded {
+      height: 45vh;
+      transition: height 400ms;
     }
   }
 </style>
