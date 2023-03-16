@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import montessori_method from "../assets/images/home/montessori-method.jpg";
 import curriculum from "../assets/images/home/curriculum.jpg";
 import typical_day from "../assets/images/home/typical-day.jpg";
@@ -12,40 +12,19 @@ import our_staff from "../assets/images/home/our-staff.jpg";
       class="img"
       src={montessori_method}
       alt="an interesting activity engages the child"
-      width={200}
-      height={200}
     />
     <div class="text">The Montessori Method</div>
   </div>
   <div class="tile top-right">
-    <Image
-      class="img"
-      src={curriculum}
-      alt="visiting a fire station"
-      width={200}
-      height={200}
-      quality={100}
-    />
+    <Image class="img" src={curriculum} alt="visiting a fire station" />
     <div class="text">Curriculum</div>
   </div>
   <div class="tile bottom-left">
-    <Image
-      class="img"
-      src={typical_day}
-      alt="playing in our outdoor garden"
-      width={200}
-      height={200}
-    />
+    <Image class="img" src={typical_day} alt="playing in our outdoor garden" />
     <div class="text">A Typical Day</div>
   </div>
   <div class="tile bottom-right">
-    <Image
-      class="img"
-      src={our_staff}
-      alt="staff taking children on a trip"
-      width={200}
-      height={200}
-    />
+    <Image class="img" src={our_staff} alt="staff taking children on a trip" />
     <div class="text">Our Qualified Staff</div>
   </div>
 </div>
@@ -59,7 +38,6 @@ import our_staff from "../assets/images/home/our-staff.jpg";
     gap: 0.25em;
     display: grid;
     width: 100%;
-    height: 350px;
 
     .tile {
       position: relative;
@@ -67,6 +45,7 @@ import our_staff from "../assets/images/home/our-staff.jpg";
       display: flex;
       overflow: hidden;
       width: 100%;
+      height: 180px;
 
       .text {
         position: absolute;
@@ -86,6 +65,11 @@ import our_staff from "../assets/images/home/our-staff.jpg";
         .text {
           height: 100%;
         }
+      }
+
+      .img {
+        object-fit: cover;
+        height: 100%;
       }
     }
 

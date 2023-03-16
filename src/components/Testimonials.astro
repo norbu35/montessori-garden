@@ -5,12 +5,12 @@ import reviews from "../assets/reviews.json";
 
 <section class="container">
   <h1 class="heading">Parents' Thoughts</h1>
-  <swiper-container init="false">
+  <swiper-container class="swiper-testimonials" init="false">
     {
       reviews.data
         .filter((review) => review.visible)
         .map((review) => (
-          <swiper-slide key={review.id}>
+          <swiper-slide class="swiper-testimonials__slide" key={review.id}>
             <p class="text">{review.text}</p>
             {review.url ? (
               <p class="name">
@@ -27,7 +27,29 @@ import reviews from "../assets/reviews.json";
   </swiper-container>
 </section>
 
-<script src="../scripts/swiper.js"></script>
+<script>
+  import type { SwiperOptions } from "swiper";
+  import { register } from "swiper/element/bundle";
+
+  register();
+
+  interface SwiperElement extends HTMLElement {
+    initialize(): CallableFunction;
+  }
+
+  const swiperParams: SwiperOptions = {
+    createElements: true,
+    effect: "cards",
+    rewind: true,
+  };
+
+  const swiper: SwiperElement = document.querySelector(
+    ".swiper-testimonials"
+  )! as SwiperElement;
+
+  Object.assign(swiper, swiperParams);
+  swiper.initialize();
+</script>
 
 <style lang="scss">
   @import "../styles/vars.scss";
@@ -46,11 +68,11 @@ import reviews from "../assets/reviews.json";
       color: white;
     }
 
-    swiper-container {
+    .swiper-testimonials {
       width: 85vw;
     }
 
-    swiper-slide {
+    .swiper-testimonials__slide {
       flex-direction: column;
       justify-content: space-evenly;
       align-items: flex-end;

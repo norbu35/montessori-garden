@@ -1,2 +1,194 @@
 ---
+import { Image } from "astro:assets";
+import activityAtTable from "../assets/images/carousel/activity-at-table.jpg";
+import baking from "../assets/images/carousel/baking.jpg";
+import climbingTree from "../assets/images/carousel/climbing-tree.jpg";
+import dipPainting from "../assets/images/carousel/dip-painting.jpg";
+import farm from "../assets/images/carousel/farm.jpg";
+import fingerPainting from "../assets/images/carousel/finger-painting.jpg";
+import identifyingFlower from "../assets/images/carousel/identifying-flower.jpg";
+import inPark from "../assets/images/carousel/in-park.jpg";
+import orangeHat from "../assets/images/carousel/orange-hat.jpg";
+import paintingTogether from "../assets/images/carousel/painting-together.jpg";
+import santaVisit from "../assets/images/carousel/santa-visit.jpg";
+import sensingFood from "../assets/images/carousel/sensing-food.jpg";
+import storyTime from "../assets/images/carousel/story-time.jpg";
+import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
 ---
+
+<section class="container">
+  <swiper-container
+    class="swiper-carousel"
+    pagination="true"
+    navigation="true"
+    scrollbar="true"
+  >
+    <swiper-slide class="swiper-slide" lazy="true" lazy="true">
+      <Image
+        class="img"
+        src={activityAtTable}
+        alt="one of our children engaged in a playing activity at the table"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={baking}
+        alt="baking can be both educational and fun"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={climbingTree}
+        alt="climbing even the smallest stubs is a great first step"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={dipPainting}
+        alt="painting engages not only your imagination but also your hands"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={farm}
+        alt="understanding animals is important for every human being"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={fingerPainting}
+        alt="finger painting is one of the more popular activities"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={identifyingFlower}
+        alt="what kind of flower sticks up there through the grass?"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={inPark}
+        alt="the children love visiting the nearby park"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={orangeHat}
+        alt="one of our children enjoying touching grass"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={paintingTogether}
+        alt="what's more fun than painting? painting together!"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={santaVisit}
+        alt="santa giving gifts to all the goodest kids"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={sensingFood}
+        alt="a blind-folded child trying to guess what type of food it is before she tastes it - activating the imagination and associating it with a sense"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={storyTime}
+        alt="group story time is one of the highlights of the morning"
+        loading="lazy"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={wateringInGarden}
+        alt="a child watering one of the plants in our garden. nurturing for something smaller than themself!"
+        loading="lazy"
+      />
+    </swiper-slide>
+  </swiper-container>
+</section>
+
+<script>
+  import type { SwiperOptions } from "swiper";
+  import { register } from "swiper/element/bundle";
+
+  register();
+
+  interface SwiperElement extends HTMLElement {
+    initialize(): CallableFunction;
+  }
+
+  const swiperParams: SwiperOptions = {
+    createElements: true,
+    effect: "fade",
+    rewind: true,
+    injectStyles: [
+      `
+      .swiper-button-next {
+        color: red;
+      }
+      `,
+    ],
+  };
+
+  const swiperCarousel: SwiperElement = document.querySelector(
+    ".swiper-carousel"
+  )! as SwiperElement;
+
+  Object.assign(swiperCarousel, swiperParams);
+  swiperCarousel.initialize();
+</script>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  .container {
+    height: 600px;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+
+    .swiper-slide {
+      .img {
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: white;
+    }
+  }
+</style>

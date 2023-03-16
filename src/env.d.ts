@@ -1,1 +1,1 @@
-/// <reference types="astro/" />
+/// <reference types="astro/client-image" />
