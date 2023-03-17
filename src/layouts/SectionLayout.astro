@@ -1,14 +1,14 @@
 ---
 interface Props {
-  title?: string;
+  heading?: string;
   bgColor?: string;
 }
 
-const { title, bgColor = "white" } = Astro.props;
+const { heading, bgColor = "white" } = Astro.props;
 ---
 
 <section class="container">
-  <h1>{title}</h1>
+  <h1>{heading}</h1>
   <slot />
 </section>
 

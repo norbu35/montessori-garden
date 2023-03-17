@@ -1,0 +1,30 @@
+---
+const { date, heading } = Astro.props;
+---
+
+<article class="container">
+  <div class="header">
+    <h1>{date}</h1>
+    <h2>{heading}</h2>
+  </div>
+  <div class="children">
+    <slot />
+  </div>
+</article>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  .container {
+    .header {
+      width: 100vw !important;
+      margin-left: -1em !important;
+      padding: 0.5em 1em;
+      font-size: 1.25em;
+      color: black;
+    }
+
+    .children {
+    }
+  }
+</style>
