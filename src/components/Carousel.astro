@@ -17,6 +17,7 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
 ---
 
 <section class="container">
+  <h1 class="heading">Gallery</h1>
   <swiper-container
     class="swiper-carousel"
     pagination="true"
@@ -159,10 +160,18 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
   @import "../styles/vars.scss";
 
   .container {
-    height: 600px;
-    width: 100vw;
-    align-items: center;
-    display: flex;
+    padding-bottom: 2rem;
+
+    .heading {
+      padding: 2rem;
+      text-align: center;
+      font-size: 2rem;
+      color: $green;
+    }
+
+    .swiper-carousel {
+      width: 90vw;
+    }
 
     .swiper-slide {
       .img {
