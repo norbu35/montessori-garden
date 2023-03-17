@@ -1,0 +1,73 @@
+h2 {
+  margin: 0.75em 0;
+  font-size: 1.375em;
+}
+
+h3 {
+  margin: 0.75em 0;
+  font-size: 1.25em;
+}
+
+p {
+  margin: 0.5em 0;
+  &:not(:last-child) {
+    margin-bottom: 0.75em;
+  }
+}
+
+* a:visited,
+* a {
+  color: initial;
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote-name {
+  margin-top: -0.5em;
+  font-size: 0.875em;
+  text-align: right;
+}
+
+i {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}
+
+ul {
+  margin: 1em 0;
+
+  li {
+    margin-left: 1.2em;
+
+    &::before {
+      content: "➢";
+      margin-left: -1.3em;
+      color: $green;
+    }
+  }
+
+  .cross {
+    &::before {
+      content: "⨉";
+      margin-left: -1em;
+      color: red;
+    }
+  }
+}
+
+dl {
+  margin: 1em 0;
+
+  dt {
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+}

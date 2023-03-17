@@ -9,7 +9,7 @@ const { heading, bgColor = "white" } = Astro.props;
 
 <section class="container">
   <h1 class="heading">{heading}</h1>
-  <slot />
+  <slot class="children" />
 </section>
 
 <style lang="scss" define:vars={{ bgColor }}>
