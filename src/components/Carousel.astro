@@ -2,6 +2,10 @@
 import { Image } from "astro:assets";
 import activityAtTable from "../assets/images/carousel/activity-at-table.jpg";
 import baking from "../assets/images/carousel/baking.jpg";
+import cake from "../assets/images/carousel/cake.jpg";
+import cozyCorner from "../assets/images/carousel/cozy-corner.jpg";
+import fruit from "../assets/images/carousel/fruit.jpg";
+import castle from "../assets/images/carousel/castle.jpg";
 import climbingTree from "../assets/images/carousel/climbing-tree.jpg";
 import dipPainting from "../assets/images/carousel/dip-painting.jpg";
 import farm from "../assets/images/carousel/farm.jpg";
@@ -24,32 +28,11 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
     navigation="true"
     scrollbar="true"
   >
-    <swiper-slide class="swiper-slide">
-      <Image
-        class="img"
-        src={activityAtTable}
-        alt="one of our children engaged in a playing activity at the table"
-      />
-    </swiper-slide>
     <swiper-slide class="swiper-slide" lazy="true">
       <Image
         class="img"
-        src={baking}
-        alt="baking can be both educational and fun"
-      />
-    </swiper-slide>
-    <swiper-slide class="swiper-slide" lazy="true">
-      <Image
-        class="img"
-        src={climbingTree}
-        alt="climbing even the smallest stubs is a great first step"
-      />
-    </swiper-slide>
-    <swiper-slide class="swiper-slide" lazy="true">
-      <Image
-        class="img"
-        src={dipPainting}
-        alt="painting engages not only your imagination but also your hands"
+        src={storyTime}
+        alt="group story time is one of the highlights of the morning"
       />
     </swiper-slide>
     <swiper-slide class="swiper-slide" lazy="true">
@@ -62,8 +45,29 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
     <swiper-slide class="swiper-slide" lazy="true">
       <Image
         class="img"
-        src={fingerPainting}
-        alt="finger painting is one of the more popular activities"
+        src={activityAtTable}
+        alt="one of our children engaged in a playing activity at the table"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={climbingTree}
+        alt="climbing even the smallest stubs is a great first step"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={baking}
+        alt="baking can be both educational and fun"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={cake}
+        alt="eating what you baked is even more fun!"
       />
     </swiper-slide>
     <swiper-slide class="swiper-slide" lazy="true">
@@ -71,6 +75,16 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
         class="img"
         src={identifyingFlower}
         alt="what kind of flower sticks up there through the grass?"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image class="img" src={castle} alt="building a castle" />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
+        src={dipPainting}
+        alt="painting engages not only your imagination but also your hands"
       />
     </swiper-slide>
     <swiper-slide class="swiper-slide" lazy="true">
@@ -83,9 +97,19 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
     <swiper-slide class="swiper-slide" lazy="true">
       <Image
         class="img"
+        src={fingerPainting}
+        alt="finger painting is one of the more popular activities"
+      />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image
+        class="img"
         src={orangeHat}
         alt="one of our children enjoying touching grass"
       />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide" lazy="true">
+      <Image class="img" src={fruit} alt="fruits are yummy" />
     </swiper-slide>
     <swiper-slide class="swiper-slide" lazy="true">
       <Image
@@ -106,13 +130,6 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
         class="img"
         src={sensingFood}
         alt="a blind-folded child trying to guess what type of food it is before she tastes it - activating the imagination and associating it with a sense"
-      />
-    </swiper-slide>
-    <swiper-slide class="swiper-slide" lazy="true">
-      <Image
-        class="img"
-        src={storyTime}
-        alt="group story time is one of the highlights of the morning"
       />
     </swiper-slide>
     <swiper-slide class="swiper-slide" lazy="true">
@@ -160,30 +177,25 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
   @import "../styles/vars.scss";
 
   .container {
-    padding-bottom: 2rem;
+    padding-top: 2rem;
 
     .heading {
-      padding: 2rem;
+      padding-bottom: 2rem;
       text-align: center;
       font-size: 2rem;
       color: $green;
     }
 
     .swiper-carousel {
-      width: 90vw;
+      height: 400px;
     }
 
     .swiper-slide {
       .img {
         object-fit: cover;
-        height: 400px;
+        height: 100%;
         width: 100%;
       }
-    }
-
-    .swiper-button-prev,
-    .swiper-button-next {
-      color: white;
     }
   }
 </style>

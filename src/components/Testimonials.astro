@@ -4,7 +4,6 @@ import reviews from "../assets/reviews.json";
 ---
 
 <section class="container">
-  <h1 class="heading">Parents' Thoughts</h1>
   <swiper-container class="swiper-testimonials" init="false">
     {
       reviews.data
@@ -55,15 +54,15 @@ import reviews from "../assets/reviews.json";
   @import "../styles/vars.scss";
 
   .container {
-    padding-bottom: 2rem;
-    background-color: $green;
     overflow: hidden;
+    padding-top: 2rem;
+    background-color: $green;
 
     .heading {
       padding: 2rem;
       text-align: center;
       font-size: 2rem;
-      color: white;
+      color: $green;
     }
 
     .swiper-testimonials {
@@ -80,7 +79,7 @@ import reviews from "../assets/reviews.json";
       padding: 2em;
       background-color: $purple;
       color: white;
-      height: 600px;
+      min-height: 400px;
 
       a,
       a:visited {
@@ -90,6 +89,10 @@ import reviews from "../assets/reviews.json";
       .text {
         line-height: 1.25em;
         font-family: "Handlee";
+      }
+
+      .name {
+        margin-top: 1em;
       }
     }
   }
