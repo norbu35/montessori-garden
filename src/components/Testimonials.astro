@@ -55,8 +55,11 @@ import reviews from "../assets/data/reviews.json";
 
   .container {
     overflow: hidden;
-    padding: 3rem 0 0;
-    background-color: $green;
+    padding: 3em 0;
+
+    @media only screen and (min-width: $md) {
+      height: 50vh;
+    }
 
     .heading {
       padding: 2rem;
@@ -67,6 +70,10 @@ import reviews from "../assets/data/reviews.json";
 
     .swiper-testimonials {
       width: 85vw;
+
+      @media only screen and (min-width: $md) {
+        width: 70vw;
+      }
     }
 
     .swiper-testimonials__slide {
@@ -89,6 +96,10 @@ import reviews from "../assets/data/reviews.json";
       .text {
         line-height: 1.25em;
         font-family: "Handlee";
+
+        @media only screen and (min-width: $md) {
+          font-size: 1.25em;
+        }
       }
 
       .name {

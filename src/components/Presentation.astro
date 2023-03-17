@@ -3,36 +3,51 @@ import SectionLayout from "../layouts/SectionLayout.astro";
 import TileLinks from "./TileLinks.astro";
 ---
 
-<SectionLayout heading="Our Approach">
-  <p>
-    We are an establishing family-run nursery school driven by the love and
-    passion of children and their development, and we believe in the natural
-    capabilities of each child to effortlessly learn with joy.
-  </p>
-  <p>
-    Our thoughtfully prepared environment is curated to support their individual
-    needs and interests and has a great influence in optimising education,
-    learning and development - setting a solid base for a lifelong joy of
-    learning.
-  </p>
-  <p>
-    All our staff share our core values and are with us because they are
-    committed to providing exceptional care that fosters love and trust. Every
-    child has the potential to be great, and we're here to help them discover
-    and develop their natural abilities.
-  </p>
-  <p>
-    We believe that education is not just about what children learn, but also
-    how they learn, and we're dedicated to providing an experience that will
-    stay with your child for life.
-  </p>
+<div class="container">
+  <SectionLayout heading="Our Approach">
+    <p>
+      We are an establishing family-run nursery school driven by the love and
+      passion of children and their development, and we believe in the natural
+      capabilities of each child to effortlessly learn with joy.
+    </p>
+    <p>
+      Our thoughtfully prepared environment is curated to support their
+      individual needs and interests and has a great influence in optimising
+      education, learning and development - setting a solid base for a lifelong
+      joy of learning.
+    </p>
+    <p>
+      All our staff share our core values and are with us because they are
+      committed to providing exceptional care that fosters love and trust. Every
+      child has the potential to be great, and we're here to help them discover
+      and develop their natural abilities.
+    </p>
+    <p>
+      We believe that education is not just about what children learn, but also
+      how they learn, and we're dedicated to providing an experience that will
+      stay with your child for life.
+    </p>
+  </SectionLayout>
   <div class="tile-links">
     <TileLinks />
   </div>
-</SectionLayout>
+</div>
 
 <style lang="scss">
   @import "../styles/vars.scss";
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+
+  p {
+    @media only screen and (min-width: $md) {
+      font-size: 1.125rem;
+    }
+  }
 
   p:not(:last-child) {
     margin-bottom: 0.5em;
@@ -41,5 +56,10 @@ import TileLinks from "./TileLinks.astro";
   .tile-links {
     align-items: center;
     display: flex;
+    padding: 0 1em 1em;
+
+    @media only screen and (min-width: $md) {
+      padding: 0 4em 3em;
+    }
   }
 </style>

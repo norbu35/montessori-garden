@@ -5,7 +5,7 @@ import img from "../assets/images/home/hero.jpg";
 ---
 
 <section class="container">
-  <div class="heading">
+  <div class="heading-container">
     <h1 class="heading-text">
       Set your child on a path of lifelong curiosity and independence.
     </h1>
@@ -13,8 +13,8 @@ import img from "../assets/images/home/hero.jpg";
   <div class="img-container">
     <Image class="img" src={img} alt="children running on a field" />
   </div>
-  <div class="subtext">
-    <div>
+  <div class="subtext-container">
+    <div class="subtext">
       <p>
         Our nursery in Kentish Town provides a safe and loving environment to
         nurture your child's creativity, problem-solving skills and interests
@@ -37,14 +37,15 @@ import img from "../assets/images/home/hero.jpg";
 
     .container {
       width: 100vw;
-      height: calc(100vh - $ht-header);
-      height: calc(var(--vh, 1vh) * 100 - $ht-header);
+      height: calc(100vh - $ht-header-sm);
+      height: calc(var(--vh, 1vh) * 100 - $ht-header-sm);
       background-color: $green;
 
-      .heading {
-        justify-content: flex-end;
+      .heading-container {
+        justify-content: flex-start;
         align-items: center;
         display: flex;
+        max-width: $sm;
         height: 25%;
         padding-left: 2rem;
         background-color: $green;
@@ -57,41 +58,63 @@ import img from "../assets/images/home/hero.jpg";
           max-width: 400px;
           line-height: 1.125em;
         }
+
+        @media only screen and (min-width: $sm) {
+          margin-left: calc((100% - $sm) / 4);
+        }
       }
 
       .img-container {
         position: relative;
         overflow: hidden;
         margin-right: 2rem;
+        max-width: $md;
         height: 40%;
+
+        @media only screen and (min-width: $md) {
+          position: initial;
+        }
 
         .img {
           position: absolute;
           top: 50%;
-          left: 52%;
-          -o-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          -moz-transform: translate(-50%, -50%);
-          -webkit-transform: translate(-50%, -50%);
+          left: 50%;
           transform: translate(-50%, -50%);
           max-width: 1024px;
+
+          @media only screen and (min-width: $md) {
+            position: initial;
+            transform: none;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
         }
       }
 
-      .subtext {
-        float: right;
+      .subtext-container {
+        margin-right: 2rem;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: flex-end;
         display: flex;
-        max-width: 415px;
         height: 35%;
-        padding: 1rem 2rem 0;
+        padding: 1rem 0 0 2rem;
         background-color: $green;
         font-size: 1.125rem;
         line-height: 1.125em;
         font-family: $font-heading;
         color: white;
+
+        @media only screen and (min-width: $sm) {
+          margin-left: calc((100% - $sm) / 4);
+          max-width: calc($md - ((100% - $sm) / 4));
+        }
+
+        @media only screen and (min-width: $md) {
+          display: flex;
+          align-items: flex-start;
+        }
 
         i {
           font-style: italic;

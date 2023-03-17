@@ -180,17 +180,30 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
   @import "../styles/vars.scss";
 
   .container {
-    padding-top: 2rem;
-
+    @media only screen and (min-width: $md) {
+      padding-bottom: 3em;
+    }
     .heading {
-      padding-bottom: 2rem;
-      text-align: center;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      height: 3em;
+      padding: 1em;
       font-size: 2rem;
       color: $green;
+
+      @media only screen and (min-width: $md) {
+        justify-content: flex-start;
+        padding: 2em;
+      }
     }
 
     .swiper-carousel {
       height: 400px;
+
+      @media only screen and (min-width: $md) {
+        height: 60vh;
+      }
     }
 
     .swiper-slide {
@@ -198,6 +211,10 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
         object-fit: cover;
         height: 100%;
         width: 100%;
+      }
+
+      @media only screen and (min-width: $md) {
+        padding: 0 3em;
       }
     }
   }
