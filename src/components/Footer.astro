@@ -3,49 +3,68 @@ import { Image } from "astro:assets";
 import icon_phone from "../assets/icons/icon-phone.png";
 import icon_address from "../assets/icons/icon-address.png";
 import icon_email from "../assets/icons/icon-email.png";
+import ofsted from "../assets/icons/logo-ofsted.png";
+import fah from "../assets/icons/logo-fah.png";
 ---
 
 <footer class="container">
   <div class="banner">Montessori Garden</div>
-  <div class="contact">
-    <div class="row">
-      <Image class="icon" src={icon_phone} alt="" width={70} height={70} />
-      <div class="text"><a href="tel:02034415860">020 3441 5860</a></div>
-    </div>
-    <div class="row">
-      <Image class="icon" src={icon_address} alt="" width={70} height={70} />
-      <div class="text">
-        7 Dowdney Close,<br />
-        Bartholomew Road,<br />
-        London, NW5 2BP
+  <div class="top">
+    <div class="contact">
+      <div class="row">
+        <Image class="icon" src={icon_phone} alt="" width={70} height={70} />
+        <div class="text"><a href="tel:02034415860">020 3441 5860</a></div>
+      </div>
+      <div class="row">
+        <Image class="icon" src={icon_address} alt="" width={70} height={70} />
+        <div class="text">
+          7 Dowdney Close,<br />
+          Bartholomew Road,<br />
+          London, NW5 2BP
+        </div>
+      </div>
+      <div class="row">
+        <Image class="icon" src={icon_email} alt="" width={70} height={70} />
+        <div class="text">
+          <a href="mailto:contact@montessorigarden.co.uk"
+            >contact@montessorigarden.co.uk</a
+          >
+        </div>
       </div>
     </div>
-    <div class="row">
-      <Image class="icon" src={icon_email} alt="" width={70} height={70} />
-      <div class="text">
-        <a href="mailto:contact@montessorigarden.co.uk"
-          >contact@montessorigarden.co.uk</a
-        >
-      </div>
+    <hr class="hr-top" />
+    <nav class="footer-nav">
+      <ul class="nav-links">
+        <li>Contact & Location</li>
+        <li>Come for a visit!</li>
+        <li>Latest News</li>
+        <li>Events</li>
+        <li>Parents' Corner</li>
+        <li>Staff Area</li>
+        <li>Our qualified Staff</li>
+        <li>A typical day</li>
+        <li>Reviews & Comments</li>
+        <li>Admissions</li>
+        <li>Services & Fees</li>
+      </ul>
+    </nav>
+    <hr />
+    <div class="awards">
+      <Image
+        class="awards__logo"
+        height={75}
+        src={ofsted}
+        alt="Ofsted Good Rating"
+      />
+      <Image
+        class="awards__logo"
+        width={150}
+        style="margin-left: -6px"
+        src={fah}
+        alt="FAH 5 Rating"
+      />
     </div>
   </div>
-  <hr />
-  <nav class="footer-nav">
-    <ul class="nav-links">
-      <li>Contact & Location</li>
-      <li>Come for a visit!</li>
-      <li>Latest News</li>
-      <li>Events</li>
-      <li>Parents' Corner</li>
-      <li>Staff Area</li>
-      <li>Our qualified Staff</li>
-      <li>A typical day</li>
-      <li>Reviews & Comments</li>
-      <li>Admissions</li>
-      <li>Services & Fees</li>
-    </ul>
-  </nav>
-  <hr />
   <div class="bottom">
     <ul class="bottom-links">
       <li>Sitemap</li>
@@ -81,55 +100,100 @@ import icon_email from "../assets/icons/icon-email.png";
         font-size: 2em;
         font-weight: 700;
         color: $green;
+
+        @media only screen and (min-width: $lg) {
+          display: none;
+        }
       }
 
-      .contact {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5em;
-        display: flex;
-        margin: 1em;
+      .top {
+        width: 100%;
 
-        .row {
-          align-items: center;
+        @media only screen and (min-width: $md) {
+          width: $md;
           display: flex;
-          width: 300px;
+          justify-content: center;
         }
 
-        a,
-        a:visited {
-          color: white;
+        .contact {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5em;
+          display: flex;
+          margin: 1em;
+
+          .row {
+            align-items: center;
+            display: flex;
+            width: 300px;
+          }
+
+          a,
+          a:visited {
+            color: white;
+          }
+
+          .icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+          }
+
+          .text {
+            margin-left: 2em;
+          }
         }
 
-        .icon {
-          width: 40px;
-          height: 40px;
+        hr {
+          width: 100%;
+          max-width: $md;
+          border: 1px solid white;
+        }
+
+        hr {
+          @media only screen and (min-width: $md) {
+            display: none;
+          }
+        }
+
+        .footer-nav {
+          width: 90%;
+          max-width: 400px;
+          margin: 0 auto;
+
+          @media only screen and (min-width: $lg) {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+          }
+
+          .nav-links {
+            flex-flow: column wrap;
+            column-gap: 1em;
+            row-gap: 5px;
+            display: flex;
+            margin: 1em;
+            height: 150px;
+          }
+        }
+      }
+
+      .awards {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        .awards__logo {
+          height: 60px;
           object-fit: contain;
         }
 
-        .text {
-          margin-left: 2em;
+        @media only screen and (min-width: $md) {
+          position: absolute;
+          margin-top: 200px;
+          width: $md;
+          align-items: flex-start;
+          justify-content: space-between;
         }
-      }
-
-      hr {
-        width: 100%;
-        max-width: $md;
-        border: 1px solid white;
-      }
-
-      .footer-nav {
-        width: 90%;
-        max-width: 400px;
-      }
-
-      .nav-links {
-        flex-flow: column wrap;
-        column-gap: 1em;
-        row-gap: 5px;
-        display: flex;
-        margin: 1em;
-        height: 150px;
       }
 
       .bottom {
@@ -139,6 +203,10 @@ import icon_email from "../assets/icons/icon-email.png";
         display: flex;
         padding: 1em;
         font-size: 0.825em;
+
+        @media only screen and (min-width: $lg) {
+          gap: 0.75em;
+        }
 
         .bottom-links {
           gap: 1em;

@@ -23,7 +23,6 @@ import icon_menu from "../assets/icons/icon-menu.png";
   </div>
   <nav class="nav" id="nav">
     <ul class="links">
-      <li class="link"><a href="/">Home</a></li>
       <li class="link link--hover js-link--hover">
         Our Nursery
         <ul class="sublinks">
@@ -152,20 +151,11 @@ import icon_menu from "../assets/icons/icon-menu.png";
         }
 
         .banner {
-          flex-grow: 1;
           justify-content: space-between;
           display: flex;
           width: 100%;
           height: 100%;
           padding: 0 1em;
-
-          @media only screen and (min-width: $sm) {
-            padding-left: calc((100% - $sm) / 4);
-          }
-
-          @media only screen and (min-width: $lg) {
-            padding-left: 0;
-          }
 
           .logo {
             width: 17%;
@@ -177,14 +167,14 @@ import icon_menu from "../assets/icons/icon-menu.png";
             display: flex;
             color: $green;
 
+            @media only screen and (min-width: $md) {
+              padding-left: 3rem;
+            }
+
             a:visited,
             a {
               text-decoration: none;
               color: $green;
-            }
-
-            @media only screen and (min-width: $sm) {
-              padding-left: 2rem;
             }
 
             .main {
@@ -252,6 +242,8 @@ import icon_menu from "../assets/icons/icon-menu.png";
           background-color: white;
           width: 100vw;
           height: 0;
+          font-family: "Mukta";
+          font-weight: 500;
           color: $green;
 
           @media only screen and (min-width: $md) {
@@ -293,6 +285,11 @@ import icon_menu from "../assets/icons/icon-menu.png";
               align-items: center;
               display: flex;
               height: 1.5em;
+              transition: transform 200ms ease;
+
+              &:hover {
+                transform: scale(115%);
+              }
 
               @media only screen and (min-width: $lg) {
                 justify-content: center;
@@ -354,6 +351,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
               padding: 1em 0.5em;
               width: 250px;
               white-space: nowrap;
+              border: 1px solid $green;
 
               @media only screen and (min-width: $md) {
                 padding: 1em 2em;
@@ -373,6 +371,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
         .nav--expanded {
           height: 340px;
           transition: height 400ms;
+          box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.75);
         }
       }
     </style>

@@ -16,8 +16,10 @@ const { heading, bgColor = "white" } = Astro.props;
   @import "../styles/vars.scss";
 
   .container {
+    margin: 0 auto;
     padding: 1em;
     background-color: var(--bgColor);
+    max-width: $lg;
 
     @media only screen and (min-width: $md) {
       padding: 4rem;
