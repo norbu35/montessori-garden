@@ -1,0 +1,44 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import SectionLayout from "src/layouts/SectionLayout.astro";
+---
+
+<Layout
+  title="Contact & Location | Montessori Garden"
+  description="Where we are and how to get in touch with us"
+>
+  <SectionLayout heading="Contact and Location">
+    <h3>You can find us at:</h3>
+    <p>
+      7 Dowdney Close,<br />
+      Bartholomew Road,<br />
+      London, NW5 2BP
+    </p>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4961.977096059535!2d-0.13566!3d51.550109!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b038a3e5989%3A0x6de2581de1fef1a3!2sDowdney%20Cl%2C%20London%20NW5%202BP%2C%20UK!5e0!3m2!1sen!2sus!4v1679129109609!5m2!1sen!2sus"
+        style="border:0;"
+        width="100%"
+        height="100%"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <p>
+      You can reach us by email at <a
+        href="mailto:contact@montessorigarden.co.uk"
+        >contact@montessorigarden.co.uk</a
+      >
+    </p>
+    <p>You can also call us on <a href="tel:02034415860">020 3441 5860</a></p>
+    <p>To book a visit, please go to <a href="/visit">visit us</a></p>
+  </SectionLayout>
+</Layout>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+  @import "../styles/section.scss";
+
+  .map {
+    height: 400px;
+  }
+</style>

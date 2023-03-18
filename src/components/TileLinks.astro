@@ -7,26 +7,26 @@ import our_staff from "../assets/images/home/our-staff.jpg";
 ---
 
 <div class="container">
-  <div class="tile top-left">
+  <a href="/curriculum" class="tile top-left">
+    <Image class="img" src={curriculum} alt="visiting a fire station" />
+    <div class="text">Curriculum</div>
+  </a>
+  <a href="/montessori-method" class="tile top-right">
     <Image
       class="img"
       src={montessori_method}
       alt="an interesting activity engages the child"
     />
     <div class="text">The Montessori Method</div>
-  </div>
-  <div class="tile top-right">
-    <Image class="img" src={curriculum} alt="visiting a fire station" />
-    <div class="text">Curriculum</div>
-  </div>
-  <div class="tile bottom-left">
+  </a>
+  <a href="/a-typical-day" class="tile bottom-left">
     <Image class="img" src={typical_day} alt="playing in our outdoor garden" />
     <div class="text">A Typical Day</div>
-  </div>
-  <div class="tile bottom-right">
+  </a>
+  <a href="/our-staff" class="tile bottom-right">
     <Image class="img" src={our_staff} alt="staff taking children on a trip" />
     <div class="text">Our Qualified Staff</div>
-  </div>
+  </a>
 </div>
 
 <style lang="scss">
