@@ -35,31 +35,38 @@ import TileLinks from "./TileLinks.astro";
 
 <style lang="scss">
   @import "../styles/vars.scss";
+  @import "../styles/section.scss";
 
   .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-  }
-
-  p {
-    @media only screen and (min-width: $md) {
-      font-size: 1.125rem;
-    }
-  }
-
-  p:not(:last-child) {
-    margin-bottom: 0.5em;
-  }
-
-  .tile-links {
+    justify-content: space-evenly;
     align-items: center;
-    display: flex;
-    padding: 1em;
+    height: 100vh;
+    overflow: hidden;
 
-    @media only screen and (min-width: $md) {
-      padding: 0 4em 3em;
+    p {
+      @media only screen and (min-width: $md) {
+        font-size: 1.125rem;
+      }
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+
+    .tile-links {
+      align-items: center;
+      display: flex;
+      padding: 1em;
+      max-width: $md;
+      height: 50%;
+      max-height: 50vh;
+
+      @media only screen and (min-width: $md) {
+        margin: 0 3em 3em;
+        max-height: 500px;
+      }
     }
   }
 </style>

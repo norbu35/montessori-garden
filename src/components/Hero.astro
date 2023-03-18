@@ -14,6 +14,9 @@ import img from "../assets/images/home/hero.jpg";
     <Image class="img" src={img} alt="children running on a field" />
   </div>
   <div class="subtext-container">
+    <div class="lg-heading">
+      Set your child on a path of lifelong curiosity and independence
+    </div>
     <div class="subtext">
       <p>
         Our nursery in Kentish Town provides a safe and loving environment to
@@ -22,108 +25,168 @@ import img from "../assets/images/home/hero.jpg";
       </p>
       <p>Come and see the difference for yourself!</p>
     </div>
-    <Button text="Visit Us" />
+    <a href="/visit"><Button text="Visit Us" /></a>
   </div>
+</section>
 
-  <script>
-    window.addEventListener("resize", () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-  </script>
+<script>
+  window.addEventListener("resize", () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  });
+</script>
 
-  <style lang="scss">
-    @import "../styles/vars.scss";
+<style lang="scss">
+  @import "../styles/vars.scss";
 
-    .container {
-      width: 100vw;
-      height: calc(100vh - $ht-header-sm);
-      height: calc(var(--vh, 1vh) * 100 - $ht-header-sm);
+  .container {
+    width: 100vw;
+    height: calc(100vh - $ht-header-sm);
+    height: calc(var(--vh, 1vh) * 100 - $ht-header-sm);
+    background-color: $green;
+
+    @media only scren and (min-width: $md) {
+      height: calc(100vh - $ht-header-md);
+      height: calc(var(--vh, 1vh) * 100 - $ht-header-md);
+    }
+
+    @media only screen and (min-width: $lg) {
+      height: calc(var(--vh, 1vh) * 100 - $ht-header-md + 10vh);
+    }
+
+    @media only screen and (min-width: $xl) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    @media only screen and (min-width: $xxl) {
+      justify-content: center;
+    }
+
+    .heading-container {
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+      max-width: $sm;
+      height: 25%;
+      padding-left: 2rem;
       background-color: $green;
+      font-size: 2rem;
+      font-family: $font-heading;
+      color: white;
 
-      .heading-container {
-        justify-content: flex-start;
-        align-items: center;
-        display: flex;
-        max-width: $sm;
-        height: 25%;
-        padding-left: 2rem;
-        background-color: $green;
-        font-size: 2rem;
-        font-family: $font-heading;
-        color: white;
-
-        .heading-text {
-          margin-bottom: 5px;
-          max-width: 400px;
-          line-height: 1.125em;
-        }
-
-        @media only screen and (min-width: $sm) {
-          margin-left: calc((100% - $sm) / 4);
-        }
+      .heading-text {
+        margin-bottom: 5px;
+        max-width: 400px;
+        line-height: 1.125em;
       }
 
-      .img-container {
-        position: relative;
-        overflow: hidden;
-        margin-right: 2rem;
-        max-width: $md;
-        height: 40%;
+      @media only screen and (min-width: $sm) {
+        margin-left: calc((100% - $sm) / 4);
+      }
+
+      @media only screen and (min-width: $lg) {
+        margin: 0 auto;
+        top: 40vh;
+      }
+
+      @media only screen and (min-width: $xl) {
+        display: none;
+      }
+    }
+
+    .img-container {
+      position: relative;
+      overflow: hidden;
+      margin-right: 2rem;
+      max-width: $md;
+      height: 40%;
+
+      @media only screen and (min-width: $md) {
+        position: initial;
+      }
+
+      @media only screen and (min-width: $lg) {
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: $xl) {
+        margin: 0;
+        order: 3;
+        height: 70%;
+      }
+
+      .img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 1024px;
 
         @media only screen and (min-width: $md) {
           position: initial;
+          transform: none;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
         }
-
-        .img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-width: 1024px;
-
-          @media only screen and (min-width: $md) {
-            position: initial;
-            transform: none;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-          }
-        }
-      }
-
-      .subtext-container {
-        margin-right: 2rem;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: flex-end;
-        display: flex;
-        height: 35%;
-        padding: 1rem 0 0 2rem;
-        background-color: $green;
-        font-size: 1.125rem;
-        line-height: 1.125em;
-        font-family: $font-heading;
-        color: white;
-
-        @media only screen and (min-width: $sm) {
-          margin-left: calc((100% - $sm) / 4);
-          max-width: calc($md - ((100% - $sm) / 4));
-        }
-
-        @media only screen and (min-width: $md) {
-          display: flex;
-          align-items: flex-start;
-        }
-
-        i {
-          font-style: italic;
-        }
-      }
-
-      .subtext p:not(:last-child) {
-        margin-bottom: 12px;
       }
     }
-  </style>
-</section>
+
+    .subtext-container {
+      margin-right: 2rem;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-end;
+      display: flex;
+      height: 35%;
+      padding: 1rem 0 0 2rem;
+      background-color: $green;
+      font-size: 1.125rem;
+      line-height: 1.125em;
+      font-family: $font-heading;
+      color: white;
+
+      .lg-heading {
+        display: none;
+        line-height: 1.25em;
+        font-size: 2em;
+
+        @media only screen and (min-width: $xl) {
+          display: initial;
+        }
+      }
+
+      @media only screen and (min-width: $sm) {
+        margin-left: calc((100% - $sm) / 4);
+        max-width: calc($md - ((100% - $sm) / 4));
+      }
+
+      @media only screen and (min-width: $md) {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+      }
+
+      @media only screen and (min-width: $lg) {
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: $xl) {
+        margin: 0 3em;
+        gap: 2em;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      i {
+        font-style: italic;
+      }
+    }
+
+    .subtext p:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+</style>

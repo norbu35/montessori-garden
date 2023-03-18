@@ -6,8 +6,10 @@ import icon_menu from "../assets/icons/icon-menu.png";
 <header class="container">
   <div class="banner">
     <div class="title">
-      <h1 class="main">Montessori Garden</h1>
-      <h1 class="sub">Kentish Town</h1>
+      <a href="/">
+        <h1 class="main">Montessori Garden</h1>
+        <h1 class="sub">Kentish Town</h1>
+      </a>
     </div>
     <button type="button" class="menu-btn">
       <Image
@@ -40,7 +42,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
         <li class="link"><a href="/contact">Contact</a></li>
         <li class="link"><a href="/visit">Visit Us</a></li>
         <li class="link">Parents' Corner</li>
-        <li class="link">Staff Area</li>
+        <li class="link link--secondary">Staff Area</li>
       </li>
     </ul>
 
@@ -48,6 +50,48 @@ import icon_menu from "../assets/icons/icon-menu.png";
       const nav = document.getElementById("nav");
       const button = document.querySelector(".menu-btn");
       const expandingLink = document.querySelectorAll(".js-link--hover");
+      let windowWidth = window.innerWidth;
+      setEventListeners();
+
+      function setEventListeners() {
+        if (button === null || nav === null) {
+          throw Error;
+        } else {
+          button.addEventListener("click", toggleNavExpand);
+        }
+
+        if (windowWidth < 992) {
+          setClickListeners();
+        } else {
+          setHoverListeners();
+        }
+      }
+
+      function setClickListeners() {
+        expandingLink.forEach((el) => {
+          el.addEventListener("click", toggleLinkExpand);
+        });
+      }
+
+      function removeClickListeners() {
+        expandingLink.forEach((el) => {
+          el.removeEventListener("click", toggleLinkExpand);
+        });
+      }
+
+      function setHoverListeners() {
+        expandingLink.forEach((el) => {
+          el.addEventListener("mouseenter", onLinkExpand);
+          el.addEventListener("mouseleave", onLinkClose);
+        });
+      }
+
+      function removeHoverListeners() {
+        expandingLink.forEach((el) => {
+          el.removeEventListener("mouseenter", onLinkExpand);
+          el.removeEventListener("mouseleave", onLinkClose);
+        });
+      }
 
       function toggleNavExpand() {
         nav?.classList.toggle("nav--expanded");
@@ -58,8 +102,19 @@ import icon_menu from "../assets/icons/icon-menu.png";
       }
 
       function toggleLinkExpand(e: Event): void {
-        const target = e.currentTarget as HTMLElement;
-        target.children[0].classList.toggle("sublinks--expanded");
+        const target = e.target as HTMLElement;
+        const directChild = target.querySelector(":scope > .sublinks");
+        if (directChild) {
+          directChild.classList.toggle("sublinks--expanded");
+        }
+      }
+
+      function onLinkExpand(e: Event): void {
+        const target = e.target as HTMLElement;
+        const directChild = target.querySelector(":scope > .sublinks");
+        if (directChild) {
+          directChild.classList.add("sublinks--expanded");
+        }
       }
 
       function onLinkClose(): void {
@@ -67,19 +122,19 @@ import icon_menu from "../assets/icons/icon-menu.png";
         target?.classList.remove("sublinks--expanded");
       }
 
-      if (button === null || nav === null) {
-        throw Error;
-      } else {
-        button.addEventListener("click", toggleNavExpand);
-      }
+      window.addEventListener("resize", () => {
+        windowWidth = window.innerWidth;
+        onNavClose();
+        onLinkClose();
 
-      if (expandingLink === null) {
-        throw Error;
-      } else {
-        expandingLink.forEach((el) => {
-          el.addEventListener("click", toggleLinkExpand);
-        });
-      }
+        if (windowWidth < 992) {
+          removeHoverListeners();
+          setClickListeners();
+        } else {
+          removeClickListeners();
+          setHoverListeners();
+        }
+      });
 
       window.addEventListener("scroll", onNavClose);
       window.addEventListener("scroll", onLinkClose);
@@ -108,6 +163,10 @@ import icon_menu from "../assets/icons/icon-menu.png";
             padding-left: calc((100% - $sm) / 4);
           }
 
+          @media only screen and (min-width: $lg) {
+            padding-left: 0;
+          }
+
           .logo {
             width: 17%;
           }
@@ -117,6 +176,12 @@ import icon_menu from "../assets/icons/icon-menu.png";
             flex-direction: column;
             display: flex;
             color: $green;
+
+            a:visited,
+            a {
+              text-decoration: none;
+              color: $green;
+            }
 
             @media only screen and (min-width: $sm) {
               padding-left: 2rem;
@@ -162,6 +227,10 @@ import icon_menu from "../assets/icons/icon-menu.png";
               margin-right: 15px;
             }
 
+            @media only screen and (min-width: $lg) {
+              display: none;
+            }
+
             .menu-icon {
               width: 30px;
               height: 25px;
@@ -180,7 +249,6 @@ import icon_menu from "../assets/icons/icon-menu.png";
           right: 0;
           overflow: hidden;
           transition: height 400ms;
-          border-top: 2px solid $green;
           background-color: white;
           width: 100vw;
           height: 0;
@@ -189,6 +257,16 @@ import icon_menu from "../assets/icons/icon-menu.png";
           @media only screen and (min-width: $md) {
             padding: 0 2rem;
             width: 70vw;
+          }
+
+          @media only screen and (min-width: $lg) {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            overflow: visible;
+            height: 2em;
+            width: 575px;
+            padding: 0;
           }
 
           .links {
@@ -201,11 +279,24 @@ import icon_menu from "../assets/icons/icon-menu.png";
             width: 50%;
             padding: 1em 1.5em;
 
+            @media only screen and (min-width: $lg) {
+              float: initial;
+              gap: 0;
+              justify-content: space-between;
+              flex-direction: row;
+              width: 100%;
+              padding: 0;
+            }
+
             .link {
               justify-content: flex-end;
               align-items: center;
               display: flex;
               height: 1.5em;
+
+              @media only screen and (min-width: $lg) {
+                justify-content: center;
+              }
 
               & > a,
               & > :visited {
@@ -219,6 +310,16 @@ import icon_menu from "../assets/icons/icon-menu.png";
               align-items: center;
               display: flex;
               margin-right: 1em;
+
+              @media only screen and (min-width: $lg) {
+                display: none;
+              }
+            }
+
+            .link--secondary {
+              @media only screen and (min-width: $lg) {
+                display: none;
+              }
             }
 
             .sublinks {
@@ -234,17 +335,36 @@ import icon_menu from "../assets/icons/icon-menu.png";
               width: 0;
               padding: 1em 0;
               white-space: nowrap;
+
+              @media only screen and (min-width: $lg) {
+                top: 1.5em;
+                left: 0.5em;
+                transition: height 400ms ease;
+                justify-content: center;
+                align-items: flex-start;
+                width: 250px;
+                height: 0;
+                padding: 0 2em;
+                background-color: white;
+              }
             }
 
             .sublinks--expanded {
               transition: width 400ms, padding 400ms ease-out;
               padding: 1em 0.5em;
-              width: 50%;
+              width: 250px;
               white-space: nowrap;
 
               @media only screen and (min-width: $md) {
                 padding: 1em 2em;
                 padding-left: 3em;
+              }
+
+              @media only screen and (min-width: $lg) {
+                transition: height 400ms ease;
+                width: 250px;
+                height: 230px;
+                padding: 0 2em;
               }
             }
           }
