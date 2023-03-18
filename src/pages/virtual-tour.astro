@@ -1,0 +1,52 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import SectionLayout from "src/layouts/SectionLayout.astro";
+---
+
+<Layout
+  title="Virtual Tour | Montessori Garden"
+  description="Take a virtual tour of our nursery"
+>
+  <SectionLayout heading="Virtual Tour">
+    <h2>Our Outdoor Classroom</h2>
+    <div class="yt-video">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/i71hZAMsH9E"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+    <h2>Our Infant Classroom</h2>
+    <div class="yt-video">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/vvOsSDf7ljk"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+    <h2>Our Preschool Classroom</h2>
+    <div class="yt-video">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/mVlxcjc9Mkc"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+  </SectionLayout>
+</Layout>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+  @import "../styles/section.scss";
+
+  .yt-video {
+    width: 90vw;
+    height: calc(90vw / 1.8);
+  }
+</style>

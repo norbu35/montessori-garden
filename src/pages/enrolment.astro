@@ -52,11 +52,95 @@ import Fees from "../components/FeesTable.html";
       </li>
     </ol>
     <h2>Services & Fees</h2>
-    <Fees />
+    <table class="tg">
+      <thead>
+        <tr>
+          <th class="tg-c3ow" colspan="4">Fees are per month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tg-0pky" rowspan="2"></td>
+          <td class="tg-8bgf" colspan="3">Age group</td>
+        </tr>
+        <tr>
+          <td class="tg-83nw" rowspan="2">Under 2s</td>
+          <td class="tg-v0hj" rowspan="2">2-5 years</td>
+          <td class="tg-v0hj" rowspan="2">
+            3 and 4 years<br /><span style="font-style: italic"
+              >* if eligible for universal
+            </span><br /><span style="font-style: italic">funding</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="tg-8bgf">Days per week</td>
+        </tr>
+        <tr>
+          <td class="tg-2dfk">2</td>
+          <td class="tg-dzcz">£1,060<br /></td>
+          <td class="tg-n3yg">£984</td>
+          <td class="tg-n3yg">£672</td>
+        </tr>
+        <tr>
+          <td class="tg-n533">3</td>
+          <td class="tg-4nj6">£1,497</td>
+          <td class="tg-wfs9">£1.393</td>
+          <td class="tg-wfs9">£1,081<br /></td>
+        </tr>
+        <tr>
+          <td class="tg-2dfk">4</td>
+          <td class="tg-dzcz">£1,699</td>
+          <td class="tg-n3yg">£1,599<br /></td>
+          <td class="tg-n3yg">£1,287</td>
+        </tr>
+        <tr>
+          <td class="tg-n533">5</td>
+          <td class="tg-4nj6">£1,799</td>
+          <td class="tg-wfs9">£1,699</td>
+          <td class="tg-wfs9">£1,387</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky" colspan="4"></td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Deposit**</td>
+          <td class="tg-c3ow" colspan="2">£900</td>
+          <td class="tg-0pky" rowspan="6">
+            <i style="font-style: italic"
+              >* Govt funding is available for children born during qualifying
+              dates - starting at the beginning of or during a Camden School
+              Term and is 3yo at the beginning of the term in which discount is
+              to be applied.</i
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Registration Fee**</td>
+          <td class="tg-c3ow" colspan="2">£50</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Late pick-up each 1 min</td>
+          <td class="tg-c3ow" colspan="2">£1.00</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Home drop-off</td>
+          <td class="tg-c3ow" colspan="2">£39.00</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Ad Hoc Hours / hour</td>
+          <td class="tg-c3ow">£17.50</td>
+          <td class="tg-c3ow">£15.50</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Babysitting / hour</td>
+          <td class="tg-c3ow" colspan="2">£28.00</td>
+        </tr>
+      </tbody>
+    </table>
     <p>
       Montessori Garden Nursery School provides reliable childcare from 8.00am
-      to 6.00pm Monday to Friday 50 weeks of the years , except for closures
-      over 5 INSET days a year, all Bank Holidays and two weeks at Christmas and
+      to 6.00pm Monday to Friday 50 weeks of the years, except for closures over
+      5 INSET days a year, all Bank Holidays and two weeks at Christmas and
       Summer.
     </p>
     <p>
@@ -124,4 +208,98 @@ import Fees from "../components/FeesTable.html";
 <style lang="scss">
   @import "../styles/vars.scss";
   @import "../styles/section.scss";
+
+  .tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+  }
+  .tg th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+  }
+  .tg .tg-83nw {
+    background-color: #efefef;
+    border-color: #343434;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+  }
+  .tg .tg-8bgf {
+    border-color: inherit;
+    font-style: italic;
+    text-align: center;
+    vertical-align: top;
+  }
+  .tg .tg-v0hj {
+    background-color: #efefef;
+    border-color: inherit;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+  }
+  .tg .tg-dzcz {
+    background-color: #ecf4ff;
+    border-color: #343434;
+    text-align: right;
+    vertical-align: top;
+  }
+  .tg .tg-c3ow {
+    border-color: inherit;
+    text-align: center;
+    vertical-align: top;
+  }
+  .tg .tg-4nj6 {
+    background-color: #dae8fc;
+    border-color: #343434;
+    text-align: right;
+    vertical-align: top;
+  }
+  .tg .tg-2dfk {
+    background-color: #ecf4ff;
+    border-color: inherit;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+  }
+  .tg .tg-0pky {
+    border-color: inherit;
+    text-align: left;
+    vertical-align: top;
+  }
+  .tg .tg-n3yg {
+    background-color: #ecf4ff;
+    border-color: inherit;
+    text-align: right;
+    vertical-align: top;
+  }
+  .tg .tg-n533 {
+    background-color: #dae8fc;
+    border-color: inherit;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+  }
+  .tg .tg-wfs9 {
+    background-color: #dae8fc;
+    border-color: inherit;
+    text-align: right;
+    vertical-align: top;
+  }
 </style>
