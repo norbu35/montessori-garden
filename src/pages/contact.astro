@@ -23,13 +23,16 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+    <h3>Phone</h3>
+    <p>You can call us on <a href="tel:02034415860">020 3441 5860</a></p>
+    <h3>Email</h3>
     <p>
-      You can reach us by email at <a
+      You can also reach us by email at <a
         href="mailto:contact@montessorigarden.co.uk"
         >contact@montessorigarden.co.uk</a
       >
     </p>
-    <p>You can also call us on <a href="tel:02034415860">020 3441 5860</a></p>
+    <h3>Book a visit</h3>
     <p>To book a visit, please go to <a href="/visit">Visit Us</a></p>
   </SectionLayout>
 </Layout>
@@ -40,5 +43,9 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
 
   .map {
     height: 400px;
+  }
+
+  h3 {
+    margin-bottom: 0;
   }
 </style>

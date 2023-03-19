@@ -17,6 +17,11 @@ const { text } = Astro.props;
     color: white;
     transition: transform 200ms ease;
 
+    @media only screen and (min-width: $md) {
+      width: 150px;
+      height: 45px;
+    }
+
     &:hover {
       transform: scale(115%);
     }

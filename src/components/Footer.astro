@@ -54,13 +54,13 @@ import fah from "../assets/icons/logo-fah.png";
     <div class="awards">
       <Image
         class="awards__logo"
-        height={75}
+        height={100}
         src={ofsted}
         alt="Ofsted Good Rating"
       />
       <Image
         class="awards__logo"
-        width={150}
+        width={175}
         style="margin-left: -6px"
         src={fah}
         alt="FAH 5 Rating"
@@ -198,14 +198,19 @@ import fah from "../assets/icons/logo-fah.png";
         display: flex;
         align-items: flex-start;
         justify-content: center;
+
         .awards__logo {
           height: 60px;
           object-fit: contain;
+
+          @media only screen and (min-width: $md) {
+            height: 80px;
+          }
         }
 
         @media only screen and (min-width: $md) {
           position: absolute;
-          margin: 250px;
+          margin: 225px;
           padding: 0 1.5em;
           width: $md;
           align-items: flex-start;

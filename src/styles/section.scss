@@ -43,10 +43,7 @@ dl {
 
 ul {
   margin: 1.5em 0;
-
-  @media only screen and (min-width: $lg) {
-    font-size: 1.1em;
-  }
+  font-size: 1.1em;
 
   li {
     margin-left: 1.2em;
