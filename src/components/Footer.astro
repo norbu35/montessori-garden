@@ -18,9 +18,11 @@ import fah from "../assets/icons/logo-fah.png";
       <div class="row">
         <Image class="icon" src={icon_address} alt="" width={70} height={70} />
         <div class="text">
-          7 Dowdney Close,<br />
-          Bartholomew Road,<br />
-          London, NW5 2BP
+          <a target="_blank" href="https://goo.gl/maps/Pt39ZzLNv4tmSTRB7">
+            7 Dowdney Close,<br />
+            Bartholomew Road,<br />
+            London, NW5 2BP
+          </a>
         </div>
       </div>
       <div class="row">
@@ -35,17 +37,17 @@ import fah from "../assets/icons/logo-fah.png";
     <hr class="hr-top" />
     <nav class="footer-nav">
       <ul class="nav-links">
-        <li>Contact & Location</li>
-        <li>Come for a visit!</li>
-        <li>Latest News</li>
-        <li>Events</li>
+        <li><a href="/curriculum">Our Curriculum</a></li>
+        <li><a href="/our-staff">Our Qualified Staff</a></li>
+        <li><a href="/a-typical-day">A Typical Day</a></li>
+        <li><a href="/visit">Come for a visit!</a></li>
+        <li><a href="/enrolment">Enrolment</a></li>
+        <li><a href="/enrolment#fees">Services & Fees</a></li>
+        <li><a href="/enrolment#admissions">Admissions</a></li>
+        <li><a href="#">Latest News</a></li>
+        <li></li>
         <li>Parents' Corner</li>
         <li>Staff Area</li>
-        <li>Our qualified Staff</li>
-        <li>A typical day</li>
-        <li>Reviews & Comments</li>
-        <li>Admissions</li>
-        <li>Services & Fees</li>
       </ul>
     </nav>
     <hr />
@@ -87,6 +89,10 @@ import fah from "../assets/icons/logo-fah.png";
       background-color: $green;
       color: white;
 
+      @media only screen and (min-width: $lg) {
+        height: $ht-footer-lg;
+      }
+
       .banner {
         justify-content: center;
         align-items: center;
@@ -108,6 +114,7 @@ import fah from "../assets/icons/logo-fah.png";
 
       .top {
         width: 100%;
+        flex-direction: row-reverse;
 
         @media only screen and (min-width: $md) {
           width: $md;
@@ -161,12 +168,6 @@ import fah from "../assets/icons/logo-fah.png";
           max-width: 400px;
           margin: 0 auto;
 
-          @media only screen and (min-width: $lg) {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-          }
-
           .nav-links {
             flex-flow: column wrap;
             column-gap: 1em;
@@ -174,6 +175,20 @@ import fah from "../assets/icons/logo-fah.png";
             display: flex;
             margin: 1em;
             height: 150px;
+
+            li > a,
+            li > a:visited {
+              text-decoration: none;
+              color: white;
+            }
+
+            li {
+              transition: transform 200ms ease;
+            }
+
+            li:hover {
+              transform: scale(110%);
+            }
           }
         }
       }
@@ -189,7 +204,8 @@ import fah from "../assets/icons/logo-fah.png";
 
         @media only screen and (min-width: $md) {
           position: absolute;
-          margin-top: 200px;
+          margin: 200px;
+          padding: 0 1.5em;
           width: $md;
           align-items: flex-start;
           justify-content: space-between;

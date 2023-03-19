@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
-import img from "../assets/images/home/hero.jpg";
+import img from "../assets/images/hero/hero.jpg";
 ---
 
 <section class="container">
@@ -123,13 +123,27 @@ import img from "../assets/images/home/hero.jpg";
         left: 50%;
         transform: translate(-50%, -50%);
         max-width: 1024px;
+        object-fit: cover;
+        object-position: -120px 0;
 
         @media only screen and (min-width: $md) {
           position: initial;
           transform: none;
           height: 100%;
           object-fit: cover;
-          object-position: center;
+          object-position: -200px -250px;
+        }
+
+        @media only screen and (min-width: $lg) {
+          object-position: -200px -250px;
+        }
+
+        @media only screen and (min-width: $xl) {
+          object-position: -350px -200px;
+        }
+
+        @media only screen and (min-width: $xxl) {
+          object-position: -200px -50px;
         }
       }
     }

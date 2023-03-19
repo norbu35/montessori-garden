@@ -3,7 +3,7 @@ import "@fontsource/handlee";
 import reviews from "../assets/data/reviews.json";
 ---
 
-<section class="container">
+<aside class="container">
   <swiper-container class="swiper-testimonials" init="false">
     {
       reviews.data
@@ -24,7 +24,7 @@ import reviews from "../assets/data/reviews.json";
         ))
     }
   </swiper-container>
-</section>
+</aside>
 
 <script>
   import type { SwiperOptions } from "swiper";
@@ -56,11 +56,7 @@ import reviews from "../assets/data/reviews.json";
   .container {
     overflow: hidden;
     padding-bottom: 3em;
-
-    @media only screen and (min-width: $md) {
-      height: 50vh;
-    }
-
+    background-color: white;
     .heading {
       padding: 2rem;
       text-align: center;
@@ -69,10 +65,16 @@ import reviews from "../assets/data/reviews.json";
     }
 
     .swiper-testimonials {
-      width: 85vw;
+      padding: 2em;
+      width: 95vw;
+      height: 600px;
+
+      @media only screen and (min-width: $sm) {
+        width: 400px;
+      }
 
       @media only screen and (min-width: $md) {
-        width: 70vw;
+        width: 700px;
       }
     }
 

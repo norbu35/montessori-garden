@@ -4,29 +4,35 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
 ---
 
 <Layout
-  title="Visit us | Montessori Garden"
+  title="Visit Us | Montessori Garden"
   description="Book a visit to come and see how it is at our nursery"
 >
-  <SectionLayout heading="Come for a visit">
-    <p>
-      We have three Open Mornings throughout the year and you can see when these
-      are held from our Calendar.
-    </p>
-    <p>
-      You may also take a virtual tour of our nursery: <a href="/virtual-tour"
-        >Virtual Tour</a
-      >
-    </p>
-    <p>
-      We welcome visitors Monday-Thursday from 10:30 AM at occasions (with the
-      exception of public and school holidays). Please <a href="/contact"
-        >contact us</a
-      > through email or phone while our usual booking form is under construction.
-    </p>
-  </SectionLayout>
+  <div class="container">
+    <SectionLayout heading="Come for a visit">
+      <p>
+        We have three Open Mornings throughout the year and you can see when
+        these are held from our Calendar.
+      </p>
+      <p>
+        You may also take a virtual tour of our nursery: <a href="/virtual-tour"
+          >Virtual Tour</a
+        >
+      </p>
+      <p>
+        We welcome visitors Monday-Thursday from 10:30 AM at occasions (with the
+        exception of public and school holidays). Please <a href="/contact"
+          >contact us</a
+        > through email or phone while our usual booking form is under construction.
+      </p>
+    </SectionLayout>
+  </div>
 </Layout>
 
 <style lang="scss">
   @import "../styles/vars.scss";
   @import "../styles/section.scss";
+
+  .container {
+    min-height: calc(100vh - $ht-footer-lg - $ht-header-md);
+  }
 </style>

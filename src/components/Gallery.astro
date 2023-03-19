@@ -26,6 +26,8 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
     pagination="true"
     navigation="true"
     scrollbar="true"
+    speed="500"
+    autoplay="true"
   >
     <swiper-slide class="swiper-slide" lazy="true">
       <Image
@@ -156,15 +158,7 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
 
   const swiperParams: SwiperOptions = {
     createElements: true,
-    effect: "fade",
     rewind: true,
-    injectStyles: [
-      `
-      .swiper-button-next {
-        color: red;
-      }
-      `,
-    ],
   };
 
   const swiperCarousel: SwiperElement = document.querySelector(
@@ -184,6 +178,7 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
     @media only screen and (min-width: $md) {
       padding-bottom: 3em;
     }
+
     .heading {
       justify-content: center;
       align-items: center;
@@ -203,7 +198,13 @@ import wateringInGarden from "../assets/images/carousel/watering-in-garden.jpg";
       height: 400px;
 
       @media only screen and (min-width: $md) {
-        height: 60vh;
+        height: 500px;
+        width: 800px;
+      }
+
+      @media only screen and (min-width: $lg) {
+        height: 700px;
+        width: $lg;
       }
     }
 
