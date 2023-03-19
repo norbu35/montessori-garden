@@ -23,7 +23,12 @@ $ht-header-md: 110px;
 $ht-footer-lg: 280px;
 
 // fonts
-$font-heading: "Lato";
+$font-h1: "Open Sans";
+$font-h2: "Open Sans";
+$font-h3: "Open Sans";
+$font-p: "Poppins";
+$font-list-heading: "Lato";
+$font-list: "Handlee";
 
 @mixin flex-center() {
   justify-content: center;

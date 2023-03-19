@@ -48,5 +48,10 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
   .yt-video {
     width: 90vw;
     height: calc(90vw / 1.8);
+
+    @media only screen and (min-width: $lg) {
+      width: $md;
+      height: calc($md / 1.8);
+    }
   }
 </style>
