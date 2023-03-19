@@ -286,6 +286,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
               display: flex;
               height: 1.5em;
               transition: transform 200ms ease;
+              position: relative;
 
               &:hover {
                 transform: scale(115%);
@@ -322,8 +323,8 @@ import icon_menu from "../assets/icons/icon-menu.png";
             .sublinks {
               z-index: 0;
               position: absolute;
-              right: 50%;
-              top: 0;
+              right: 100%;
+              top: -1em;
               gap: 1em;
               flex-direction: column;
               display: flex;
@@ -336,7 +337,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
 
               @media only screen and (min-width: $lg) {
                 top: 1.5em;
-                left: 0.5em;
+                left: 0;
                 transition: height 400ms ease;
                 justify-content: center;
                 align-items: flex-start;
