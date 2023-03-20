@@ -15,6 +15,7 @@ specifiers:
   eslint: ^8.35.0
   eslint-plugin-astro: ^0.23.0
   eslint-plugin-jsx-a11y: ^6.7.1
+  js-year-calendar: ^2.0.0
   postcss: ^8.4.21
   sass: ^1.58.3
   swiper: ^9.1.0
@@ -30,6 +31,7 @@ dependencies:
   '@fontsource/poppins': 4.5.10
   astro: 2.1.3_sass@1.58.3
   autoprefixer: 10.4.14_postcss@8.4.21
+  js-year-calendar: 2.0.0
   postcss: 8.4.21
   swiper: 9.1.0
 
@@ -2499,6 +2501,10 @@ packages:
     dependencies:
       argparse: 2.0.1
     dev: true
+
+  /js-year-calendar/2.0.0:
+    resolution: {integrity: sha512-Q1cB25/9fQkl/FefzrfwMBGbDSoF5nCHEj3LGHJh2BdXdFUJf1asFn6A7jnMrdo+c4QpDoc0HEcvhu+SjmGOaw==}
+    dev: false
 
   /jsesc/2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
