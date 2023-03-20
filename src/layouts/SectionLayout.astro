@@ -1,10 +1,11 @@
 ---
 interface Props {
   heading?: string;
+  headingColor?: string;
   bgColor?: string;
 }
 
-const { heading, bgColor = "white" } = Astro.props;
+const { heading, bgColor = "white", headingColor = "white" } = Astro.props;
 ---
 
 <section class="container">
@@ -12,7 +13,7 @@ const { heading, bgColor = "white" } = Astro.props;
   <slot />
 </section>
 
-<style lang="scss" define:vars={{ bgColor }}>
+<style lang="scss" define:vars={{ bgColor, headingColor }}>
   @import "../styles/vars.scss";
 
   .container {

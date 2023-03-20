@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^1.2.1",
     "@astrojs/ts-plugin": "^0.4.4",
     "@fontsource/caveat": "^4.5.10",
     "@fontsource/handlee": "^4.5.9",
