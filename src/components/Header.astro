@@ -12,7 +12,13 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       </a>
     </div>
     <button type="button" class="menu-btn">
-      <Image class="menu-icon" src={icon_menu} alt="menu button" />
+      <Image
+        class="menu-icon"
+        src={icon_menu}
+        alt="menu button"
+        width="38"
+        height="23"
+      />
     </button>
   </div>
   <nav class="nav" id="nav">
@@ -238,8 +244,13 @@ import icon_menu from "../assets/icons/icon-menu.webp";
         }
 
         .menu-icon {
-          width: 35px;
-          height: 25px;
+          width: 30px;
+          height: 20px;
+
+          @media only screen and (min-width: $md) {
+            width: 35px;
+            height: 25px;
+          }
         }
       }
     }
