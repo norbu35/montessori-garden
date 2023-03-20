@@ -352,16 +352,20 @@ import icon_menu from "../assets/icons/icon-menu.png";
           flex-direction: column;
           display: flex;
           overflow: hidden;
-          transition: width 400ms, padding 400ms ease-out;
+          transition: width 400ms, padding 400ms ease-out, margin 400ms ease;
           width: 0;
           padding: 1em 0;
           white-space: nowrap;
           font-size: 0.9em;
 
+          .link {
+            margin-left: 1em;
+          }
+
           @media only screen and (min-width: $lg) {
             top: 1.5em;
             left: 0;
-            transition: height 400ms ease;
+            transition: height 400ms ease, margin 400ms ease;
             justify-content: flex-start;
             align-items: flex-start;
             width: 250px;
