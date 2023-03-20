@@ -26,12 +26,18 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
 
     <meta name="description" content={description} />
+
     <meta property="og:title" content="Montessori Garden Nursery School" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/image-og.jpg" />
+    <meta property="og:url" content="http://montessorigarden.co.uk" />
     <meta
       property="og:description"
-      content="We are a Montessori Nursery School providing reliable childcare from 8.00am to 6.00pm Monday to Friday 50 weeks of the years, except for 5 INSET days a year, Bank Holidays and two weeks at Christmas and Summer, with flexibility to choose from 2 to 5 full days a week as well as auxiliary services."
+      content="We are a Montessori Nursery School providing reliable childcare
+      from 8.00am to 6.00pm Monday to Friday 50 weeks of the years, except for
+      5 INSET days a year, with flexibility to choose from 2 to 5 full days a
+      week as well as auxiliary services."
     />
-    <meta property="og:image" content="../assets/images/image-og.jpg" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="745" />
     <title>{title}</title>
