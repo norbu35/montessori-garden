@@ -42,21 +42,21 @@ const { title, description } = Astro.props;
 </html>
 
 <script>
-  let lastScrollTop = window.pageYOffset;
+  let lastScrollTop = 0;
 
   function onScrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function toggleButtonShow() {
-    let st = window.pageYOffset;
+    let st = window.pageYOffset || document.documentElement.scrollTop;
 
     if (st > lastScrollTop || window.scrollY < window.innerHeight / 2) {
       upBtn.classList.remove("show-btn");
     } else if (st < lastScrollTop) {
       upBtn.classList.add("show-btn");
     }
-    lastScrollTop = st <= window.pageYOffset ? window.pageYOffset : st;
+    lastScrollTop = st <= 0 ? 0 : st;
   }
 
   const upBtn = document.querySelector(".btn-top") as HTMLElement;
