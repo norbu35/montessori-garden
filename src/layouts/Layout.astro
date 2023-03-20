@@ -42,7 +42,7 @@ const { title, description } = Astro.props;
 </html>
 
 <script>
-  let lastScrollTop = 0;
+  let lastScrollTop = window.pageYOffset;
 
   function onScrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -56,7 +56,7 @@ const { title, description } = Astro.props;
     } else if (st < lastScrollTop) {
       upBtn.classList.add("show-btn");
     }
-    lastScrollTop = st <= 0 ? 0 : st;
+    lastScrollTop = st <= window.pageYOffset ? window.pageYOffset : st;
   }
 
   const upBtn = document.querySelector(".btn-top") as HTMLElement;
