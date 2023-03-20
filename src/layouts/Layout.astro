@@ -36,9 +36,33 @@ const { title, description } = Astro.props;
   <body>
     <Header />
     <slot />
+    <button class="btn-top"></button>
     <Footer />
   </body>
 </html>
+
+<script>
+  let lastScrollTop = 0;
+
+  function onScrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function toggleButtonShow() {
+    let st = window.pageYOffset;
+
+    if (st > lastScrollTop || window.scrollY < window.innerHeight / 2) {
+      upBtn.classList.remove("show-btn");
+    } else if (st < lastScrollTop) {
+      upBtn.classList.add("show-btn");
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }
+
+  const upBtn = document.querySelector(".btn-top") as HTMLElement;
+  window.addEventListener("scroll", toggleButtonShow, false);
+  upBtn?.addEventListener("click", onScrollToTop);
+</script>
 
 <style is:global lang="scss">
   @import "../styles/vars.scss";
@@ -48,6 +72,35 @@ const { title, description } = Astro.props;
   /* } */
 
   body * {
+    @import "../styles/vars.scss";
+
     box-sizing: border-box;
+  }
+
+  .btn-top {
+    z-index: 5;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    display: none;
+    border-radius: 50%;
+    height: 4em;
+    width: 2em;
+    opacity: 0.7;
+    background-color: $darkblue;
+    background-image: url("../assets/icons/icon-up.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    font-size: 1em;
+
+    &:active {
+      transform: scale(110%);
+    }
+  }
+
+  .show-btn {
+    display: initial;
   }
 </style>

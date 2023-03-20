@@ -23,7 +23,7 @@ import icon_menu from "../assets/icons/icon-menu.png";
   </div>
   <nav class="nav" id="nav">
     <ul class="links">
-      <li class="link link--hover js-link--hover">
+      <ul class="link link--hover js-link--hover">
         Our Nursery
         <ul class="sublinks">
           <li class="link"><a href="/curriculum">Curriculum</a></li>
@@ -34,359 +34,360 @@ import icon_menu from "../assets/icons/icon-menu.png";
           <li class="link"><a href="/our-staff">Our Qualified Staff</a></li>
           <li class="link"><a href="/virtual-tour">Virtual Tour</a></li>
         </ul>
-      </li>
+      </ul>
       <li class="link">
         <a href="/enrolment">Enrolment</a>
       </li>
-      <li class="link link--hover js-link--hover">
+      <ul class="link link--hover js-link--hover">
         News & Events
         <ul class="sublinks">
           <li class="link"><a href="/events">Calendar Events</a></li>
           <li class="link"><a href="/news">Latest News</a></li>
         </ul>
-      </li>
+      </ul>
       <li class="link"><a href="/contact">Contact</a></li>
       <li class="link"><a href="/visit">Visit Us</a></li>
       <li class="link">Parents' Corner</li>
       <li class="link link--secondary">Staff Area</li>
     </ul>
   </nav>
+</header>
 
-  <script>
-    const nav = document.getElementById("nav");
-    const button = document.querySelector(".menu-btn");
-    const expandingLinks = document.querySelectorAll(".js-link--hover");
-    let windowWidth = window.innerWidth;
-    setEventListeners();
+<script>
+  const nav = document.getElementById("nav");
+  const button = document.querySelector(".menu-btn");
+  const expandingLinks = document.querySelectorAll(".js-link--hover");
+  let windowWidth = window.innerWidth;
+  setEventListeners();
 
-    function setEventListeners() {
-      if (button === null || nav === null) {
-        throw Error;
-      } else {
-        button.addEventListener("click", toggleNavExpand);
-      }
-
-      if (windowWidth < 992) {
-        setClickListeners();
-      } else {
-        setHoverListeners();
-      }
+  function setEventListeners() {
+    if (button === null || nav === null) {
+      throw Error;
+    } else {
+      button.addEventListener("click", toggleNavExpand);
     }
 
-    function setClickListeners() {
-      expandingLinks.forEach((el) => {
-        el.addEventListener("click", toggleLinkExpand);
-      });
+    if (windowWidth < 992) {
+      setClickListeners();
+    } else {
+      setHoverListeners();
     }
+  }
 
-    function removeClickListeners() {
-      expandingLinks.forEach((el) => {
-        el.removeEventListener("click", toggleLinkExpand);
-      });
-    }
-
-    function setHoverListeners() {
-      expandingLinks.forEach((el) => {
-        el.addEventListener("mouseenter", onLinkExpand);
-        el.addEventListener("mouseleave", onLinkClose);
-      });
-    }
-
-    function removeHoverListeners() {
-      expandingLinks.forEach((el) => {
-        el.removeEventListener("mouseenter", onLinkExpand);
-        el.removeEventListener("mouseleave", onLinkClose);
-      });
-    }
-
-    function toggleNavExpand() {
-      nav?.classList.toggle("nav--expanded");
-      onLinkCloseAll();
-    }
-
-    function onNavClose() {
-      nav?.classList.remove("nav--expanded");
-    }
-
-    function toggleLinkExpand(e: Event): void {
-      onLinkCloseAll();
-      const target = e.target as HTMLElement;
-      const directChild = target.querySelector(":scope > .sublinks");
-      if (directChild) {
-        directChild.classList.toggle("sublinks--expanded");
-      }
-    }
-
-    function onLinkExpand(e: Event): void {
-      const target = e.target as HTMLElement;
-      const directChild = target.querySelector(":scope > .sublinks");
-      if (directChild) {
-        directChild.classList.add("sublinks--expanded");
-      }
-    }
-
-    function onLinkCloseAll() {
-      expandingLinks.forEach((el) => {
-        const target = el.querySelector(".sublinks") as HTMLElement;
-        target.classList.remove("sublinks--expanded");
-      });
-    }
-
-    function onLinkClose(e: Event): void {
-      const target = e.target as HTMLElement;
-      const directChild = target.querySelector(":scope > .sublinks");
-      if (directChild) {
-        directChild.classList.toggle("sublinks--expanded");
-      }
-    }
-
-    window.addEventListener("resize", () => {
-      windowWidth = window.innerWidth;
-      onNavClose();
-      onLinkCloseAll();
-
-      if (windowWidth < 992) {
-        removeHoverListeners();
-        setClickListeners();
-      } else {
-        removeClickListeners();
-        setHoverListeners();
-      }
+  function setClickListeners() {
+    expandingLinks.forEach((el) => {
+      el.addEventListener("click", toggleLinkExpand);
     });
+  }
 
-    window.addEventListener("scroll", onNavClose);
-    window.addEventListener("scroll", onLinkClose);
-  </script>
+  function removeClickListeners() {
+    expandingLinks.forEach((el) => {
+      el.removeEventListener("click", toggleLinkExpand);
+    });
+  }
 
-  <style lang="scss">
-    @import "../styles/vars.scss";
+  function setHoverListeners() {
+    expandingLinks.forEach((el) => {
+      el.addEventListener("mouseenter", onLinkExpand);
+      el.addEventListener("mouseleave", onLinkClose);
+    });
+  }
 
-    .container {
-      height: $ht-header-sm;
-      background-color: white;
+  function removeHoverListeners() {
+    expandingLinks.forEach((el) => {
+      el.removeEventListener("mouseenter", onLinkExpand);
+      el.removeEventListener("mouseleave", onLinkClose);
+    });
+  }
 
-      @media only screen and (min-width: $md) {
-        height: $ht-header-md;
+  function toggleNavExpand() {
+    nav?.classList.toggle("nav--expanded");
+    onLinkCloseAll();
+  }
+
+  function onNavClose() {
+    nav?.classList.remove("nav--expanded");
+    onLinkCloseAll();
+  }
+
+  function toggleLinkExpand(e: Event): void {
+    onLinkCloseAll();
+    const target = e.target as HTMLElement;
+    const directChild = target.querySelector(":scope > .sublinks");
+    if (directChild) {
+      directChild.classList.toggle("sublinks--expanded");
+    }
+  }
+
+  function onLinkExpand(e: Event): void {
+    const target = e.target as HTMLElement;
+    const directChild = target.querySelector(":scope > .sublinks");
+    if (directChild) {
+      directChild.classList.add("sublinks--expanded");
+    }
+  }
+
+  function onLinkCloseAll() {
+    expandingLinks.forEach((el) => {
+      const target = el.querySelector(".sublinks") as HTMLElement;
+      target.classList.remove("sublinks--expanded");
+    });
+  }
+
+  function onLinkClose(e: Event): void {
+    const target = e.target as HTMLElement;
+    const directChild = target.querySelector(":scope > .sublinks");
+    if (directChild) {
+      directChild.classList.toggle("sublinks--expanded");
+    }
+  }
+
+  window.addEventListener("resize", () => {
+    windowWidth = window.innerWidth;
+    onNavClose();
+    onLinkCloseAll();
+
+    if (windowWidth < 992) {
+      removeHoverListeners();
+      setClickListeners();
+    } else {
+      removeClickListeners();
+      setHoverListeners();
+    }
+  });
+
+  window.addEventListener("scroll", onNavClose);
+  window.addEventListener("scroll", onLinkClose);
+</script>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  .container {
+    height: $ht-header-sm;
+    background-color: white;
+
+    @media only screen and (min-width: $md) {
+      height: $ht-header-md;
+    }
+
+    .banner {
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      padding: 0 1em;
+
+      .logo {
+        width: 17%;
       }
 
-      .banner {
-        justify-content: space-between;
+      .title {
+        justify-content: center;
+        flex-direction: column;
         display: flex;
-        width: 100%;
-        height: 100%;
-        padding: 0 1em;
+        color: $green;
 
-        .logo {
-          width: 17%;
+        @media only screen and (min-width: $md) {
+          padding-left: 3rem;
         }
 
-        .title {
-          justify-content: center;
-          flex-direction: column;
-          display: flex;
+        a:visited,
+        a {
+          text-decoration: none;
           color: $green;
+        }
+
+        .main {
+          align-items: center;
+          display: flex;
+          height: 60%;
+          font-size: 2.25rem;
+          font-family: "Caveat";
+          font-weight: 600;
 
           @media only screen and (min-width: $md) {
-            padding-left: 3rem;
+            font-size: 3rem;
+          }
+        }
+
+        .sub {
+          align-items: center;
+          display: flex;
+          height: 40%;
+          margin-top: -8px;
+          font-size: 1.25rem;
+          font-family: "Mukta";
+          font-weight: 500;
+          @media only screen and (min-width: $md) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .menu-btn {
+        justify-content: center;
+        display: none;
+        align-items: center;
+        display: flex;
+        margin-right: 10px;
+        border: none;
+        background: none;
+
+        @media only screen and (min-width: $md) {
+          margin-right: 15px;
+        }
+
+        @media only screen and (min-width: $lg) {
+          display: none;
+        }
+
+        .menu-icon {
+          width: 30px;
+          height: 25px;
+
+          @media only screen and (min-width: $md) {
+            width: 35px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .nav {
+      z-index: 2;
+      position: absolute;
+      right: 0;
+      overflow: hidden;
+      transition: height 400ms;
+      background-color: white;
+      width: 100vw;
+      height: 0;
+      font-family: "Mukta";
+      font-weight: 500;
+      color: $green;
+
+      @media only screen and (min-width: $md) {
+        padding: 0 2rem;
+        width: 70vw;
+      }
+
+      @media only screen and (min-width: $lg) {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        overflow: visible;
+        height: 2em;
+        width: 625px;
+        padding: 0;
+        font-size: 1.2em;
+      }
+
+      .links {
+        z-index: 1;
+        position: aboslute;
+        float: right;
+        flex-direction: column;
+        display: flex;
+        gap: 1em;
+        width: 50%;
+        padding: 1em 1.5em;
+
+        @media only screen and (min-width: $lg) {
+          float: initial;
+          gap: 0;
+          justify-content: space-between;
+          flex-direction: row;
+          width: 100%;
+          padding: 0;
+        }
+
+        .link {
+          justify-content: flex-end;
+          align-items: center;
+          display: flex;
+          height: 1.5em;
+          transition: transform 200ms ease;
+          position: relative;
+
+          &:hover {
+            transform: scale(115%);
           }
 
-          a:visited,
-          a {
+          @media only screen and (min-width: $lg) {
+            justify-content: center;
+          }
+
+          & > a,
+          & > :visited {
             text-decoration: none;
             color: $green;
           }
-
-          .main {
-            align-items: center;
-            display: flex;
-            height: 60%;
-            font-size: 2.25rem;
-            font-family: "Caveat";
-            font-weight: 600;
-
-            @media only screen and (min-width: $md) {
-              font-size: 3rem;
-            }
-          }
-
-          .sub {
-            align-items: center;
-            display: flex;
-            height: 40%;
-            margin-top: -8px;
-            font-size: 1.25rem;
-            font-family: "Mukta";
-            font-weight: 500;
-            @media only screen and (min-width: $md) {
-              font-size: 1.5rem;
-            }
-          }
         }
 
-        .menu-btn {
-          justify-content: center;
-          display: none;
+        .link--hover:before {
+          content: "←";
           align-items: center;
           display: flex;
-          margin-right: 10px;
-          border: none;
-          background: none;
-
-          @media only screen and (min-width: $md) {
-            margin-right: 15px;
-          }
+          margin-right: 1em;
 
           @media only screen and (min-width: $lg) {
             display: none;
           }
+        }
 
-          .menu-icon {
-            width: 30px;
-            height: 25px;
-
-            @media only screen and (min-width: $md) {
-              width: 35px;
-              height: 30px;
-            }
+        .link--secondary {
+          @media only screen and (min-width: $lg) {
+            display: none;
           }
         }
-      }
 
-      .nav {
-        z-index: 2;
-        position: absolute;
-        right: 0;
-        overflow: hidden;
-        transition: height 400ms;
-        background-color: white;
-        width: 100vw;
-        height: 0;
-        font-family: "Mukta";
-        font-weight: 500;
-        color: $green;
-
-        @media only screen and (min-width: $md) {
-          padding: 0 2rem;
-          width: 70vw;
-        }
-
-        @media only screen and (min-width: $lg) {
+        .sublinks {
+          z-index: 0;
           position: absolute;
-          top: 70px;
-          right: 20px;
-          overflow: visible;
-          height: 2em;
-          width: 625px;
-          padding: 0;
-          font-size: 1.2em;
-        }
-
-        .links {
-          z-index: 1;
-          position: aboslute;
-          float: right;
+          right: 100%;
+          top: -1em;
+          gap: 1em;
           flex-direction: column;
           display: flex;
-          gap: 1em;
-          width: 50%;
-          padding: 1em 1.5em;
+          overflow: hidden;
+          transition: width 400ms, padding 400ms ease-out;
+          width: 0;
+          padding: 1em 0;
+          white-space: nowrap;
+          font-size: 0.9em;
 
           @media only screen and (min-width: $lg) {
-            float: initial;
-            gap: 0;
-            justify-content: space-between;
-            flex-direction: row;
-            width: 100%;
-            padding: 0;
-          }
-
-          .link {
-            justify-content: flex-end;
-            align-items: center;
-            display: flex;
-            height: 1.5em;
-            transition: transform 200ms ease;
-            position: relative;
-
-            &:hover {
-              transform: scale(115%);
-            }
-
-            @media only screen and (min-width: $lg) {
-              justify-content: center;
-            }
-
-            & > a,
-            & > :visited {
-              text-decoration: none;
-              color: $green;
-            }
-          }
-
-          .link--hover:before {
-            content: "←";
-            align-items: center;
-            display: flex;
-            margin-right: 1em;
-
-            @media only screen and (min-width: $lg) {
-              display: none;
-            }
-          }
-
-          .link--secondary {
-            @media only screen and (min-width: $lg) {
-              display: none;
-            }
-          }
-
-          .sublinks {
-            z-index: 0;
-            position: absolute;
-            right: 100%;
-            top: -1em;
-            gap: 1em;
-            flex-direction: column;
-            display: flex;
-            overflow: hidden;
-            transition: width 400ms, padding 400ms ease-out;
-            width: 0;
-            padding: 1em 0;
-            white-space: nowrap;
-            font-size: 0.9em;
-
-            @media only screen and (min-width: $lg) {
-              top: 1.5em;
-              left: 0;
-              transition: height 400ms ease;
-              justify-content: flex-start;
-              align-items: flex-start;
-              width: 250px;
-              height: 0;
-              padding: 0;
-              background-color: white;
-            }
-          }
-
-          .sublinks--expanded {
-            transition: width 400ms ease-out, padding 400ms ease-out;
-            padding: 1em 0.5em;
+            top: 1.5em;
+            left: 0;
+            transition: height 400ms ease;
+            justify-content: flex-start;
+            align-items: flex-start;
             width: 250px;
-            white-space: nowrap;
+            height: 0;
+            padding: 0;
+            background-color: white;
+          }
+        }
 
-            @media only screen and (min-width: $lg) {
-              transition: height 400ms ease-out, padding 400ms ease-out;
-              width: 250px;
-              height: 230px;
-            }
+        .sublinks--expanded {
+          transition: width 400ms ease-out, padding 400ms ease-out;
+          padding: 1em 0.5em;
+          width: 250px;
+          white-space: nowrap;
+
+          @media only screen and (min-width: $lg) {
+            transition: height 400ms ease-out, padding 400ms ease-out;
+            width: 250px;
+            height: 230px;
           }
         }
       }
-
-      .nav--expanded {
-        height: 300px;
-        transition: height 400ms;
-      }
     }
-  </style>
-</header>
+
+    .nav--expanded {
+      height: 300px;
+      transition: height 400ms;
+    }
+  }
+</style>
