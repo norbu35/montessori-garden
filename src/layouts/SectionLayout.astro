@@ -30,12 +30,20 @@ const { heading, bgColor = "white" } = Astro.props;
     }
 
     .heading {
+      font-family: $font-h1;
       font-size: 2rem;
       margin: 1em 0;
-      font-family: $font-h1;
 
-      @media only screen and (min-width: $lg) {
+      @media only screen and (min-width: $md) {
+        height: 3em;
+        display: flex;
+        align-items: flex-end;
+        background-image: url("../assets/images/bg-heading2.png");
+        background-position: center;
+        background-size: cover;
+        color: white;
         font-size: 2.5em;
+        padding-left: 8px;
       }
     }
   }
