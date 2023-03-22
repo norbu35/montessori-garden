@@ -11,7 +11,7 @@ import Footer from "../components/Footer.astro";
 
 export interface Props {
   title: string;
-  description: string;
+  description?: string;
 }
 
 const { title, description } = Astro.props;
@@ -40,8 +40,7 @@ const { title, description } = Astro.props;
     <meta property="og:url" content="http://montessorigarden.co.uk" />
     <meta
       property="og:description"
-      content="We are a Montessori Nursery School providing reliable childcare
-      from 8.00am to 6.00pm Monday to Friday 50 weeks of the years, except for
+      content="We provide reliable childcare in Kentish Town, London from 8.00am to 6.00pm Monday to Friday 50 weeks of the years, except for
       5 INSET days a year, with flexibility to choose from 2 to 5 full days a
       week as well as auxiliary services."
     />
@@ -83,6 +82,10 @@ const { title, description } = Astro.props;
 
 <style is:global lang="scss">
   @import "../styles/vars.scss";
+
+  /* body * { */
+  /*   border: 1px solid red; */
+  /* } */
 
   body * {
     @import "../styles/vars.scss";

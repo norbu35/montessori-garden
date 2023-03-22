@@ -1,7 +1,23 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import SectionLayout from "src/layouts/SectionLayout.astro";
-import NewsArticle from "src/layouts/NewsArticle.astro";
+import ArticlePreview from "src/layouts/ArticlePreview.astro";
+const allArticles = await Astro.glob<Frontmatter>("../pages/news/*.mdx");
+
+const articlesSorted = allArticles
+  .sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))
+  .slice(0, 4);
+
+interface Image {
+  url: string;
+  alt?: string;
+}
+
+interface Frontmatter {
+  title: string;
+  date: string;
+  images: Image[];
+}
 ---
 
 <Layout
@@ -9,21 +25,22 @@ import NewsArticle from "src/layouts/NewsArticle.astro";
   description="Get updated on our latest news and events"
 >
   <SectionLayout heading="Latest News">
-    <NewsArticle
-      date="2023-04-01"
-      heading="Congratulations to Team MG for achieving 5 out of 5 Hygiene Rating!"
-    >
-      <p>
-        Well Done Team MG for excelling at our surprise visit from the Camden
-        Environmental Health on 21 March 2019, which conducted a full inspection
-        of the setting to check compliance with food hygiene and food standards
-        laws. Here is an extract from the report: “Based on the standards found
-        at your inspection, I am pleased to tell you that you have achieved the
-        top food hygiene rating of 5 “Very Good”. This was calculated as
-        follows: Compliance with food hygiene and safety procedures: 5
-        Compliance with structural requirements: 5 Confidence in management/
-        control procedures: 5″ Well done!
-      </p>
-    </NewsArticle>
+    {
+      articlesSorted.map((post) => (
+        <div class="article">
+          <ArticlePreview
+            title={post.frontmatter.title}
+            url={post.url}
+            date={post.frontmatter.date.slice(0, 10)}
+          />
+        </div>
+      ))
+    }
   </SectionLayout>
 </Layout>
+
+<style lang="scss">
+  .article:not(:last-child) {
+    margin-bottom: 2em;
+  }
+</style>

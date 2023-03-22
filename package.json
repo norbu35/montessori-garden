@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
+    "@astrojs/mdx": "^0.18.2",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/ts-plugin": "^0.4.4",
     "@fontsource/caveat": "^4.5.10",

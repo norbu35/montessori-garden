@@ -1,0 +1,127 @@
+---
+import Layout from "./Layout.astro";
+const { title, date, images } = Astro.props;
+import { Image } from "astro:assets";
+
+interface Image {
+  img: ImageMetadata;
+  alt: string;
+}
+---
+
+<Layout title={title}>
+  <article class="container">
+    <h1 class="heading">{title}</h1>
+    <div class="date">{date.slice(0, 10)}</div>
+    <div class="article">
+      <swiper-container navigation="true">
+        {
+          images.map((image: Image) => (
+            <swiper-slide>
+              <Image class="img" src={image.img} alt={image.alt} />
+            </swiper-slide>
+          ))
+        }
+      </swiper-container>
+      <div class="text">
+        <slot />
+      </div>
+    </div>
+    <a href="/news">
+      <button class="btn-back">Back</button>
+    </a>
+  </article>
+</Layout>
+
+<script>
+  import { register } from "swiper/element/bundle";
+  import type { SwiperOptions } from "swiper";
+
+  register();
+
+  interface SwiperElement extends HTMLElement {
+    initialize(): CallableFunction;
+  }
+
+  const swiperParams: SwiperOptions = {
+    createElements: true,
+    rewind: true,
+  };
+
+  const swiperCarousel: SwiperElement = document.querySelector(
+    "swiper-container"
+  )! as SwiperElement;
+
+  Object.assign(swiperCarousel, swiperParams);
+  swiperCarousel.initialize();
+</script>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  .container {
+    margin: 0 auto;
+    padding: 1em;
+    background-color: var(--bgColor);
+    max-width: $lg;
+
+    @media only screen and (min-width: $md) {
+      padding: 4rem;
+    }
+
+    @media only screen and (min-width: $lg) {
+      font-size: 18px;
+    }
+
+    .heading {
+      font-family: $font-h1;
+      font-size: 2rem;
+
+      @media only screen and (min-width: $md) {
+        height: 2em;
+        display: flex;
+        align-items: flex-end;
+        background-image: url("../assets/images/bg-heading2.png");
+        background-position: center;
+        background-size: cover;
+        color: white;
+        font-size: 2.5em;
+        margin: 0 0 1em;
+        padding-left: 8px;
+      }
+    }
+
+    .date {
+      font-size: 1.25em;
+      font-family: $font-h2;
+      margin-bottom: 1em;
+    }
+
+    .article {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      swiper-container {
+        margin: 0;
+        height: 400px;
+
+        @media only screen and (min-width: $lg) {
+          height: 600px;
+        }
+
+        swiper-slide {
+          .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .text {
+        margin-top: 1em;
+      }
+    }
+  }
+</style>

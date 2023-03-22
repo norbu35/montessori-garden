@@ -1,0 +1,34 @@
+---
+import SectionLayout from "src/layouts/SectionLayout.astro";
+import ArticlePreviewLayout from "../layouts/ArticlePreviewLayout.astro";
+
+const allArticles = await Astro.glob("../pages/news/*.mdx");
+const latestArticles = allArticles
+  .sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))
+  .slice(0, 4);
+---
+
+<div class="container">
+  <SectionLayout heading="Latest News">
+    {
+      latestArticles.map((post) => (
+        <article class="article">
+          <ArticlePreviewLayout
+            title={post.frontmatter.title}
+            url={post.url}
+            date={post.frontmatter.date.slice(0, 10)}
+          />
+        </article>
+      ))
+    }
+  </SectionLayout>
+</div>
+<style lang="scss">
+  @import "../styles/vars.scss";
+
+  .container {
+    .article:not(:last-child) {
+      margin-bottom: 2em;
+    }
+  }
+</style>
