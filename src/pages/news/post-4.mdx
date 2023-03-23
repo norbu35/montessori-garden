@@ -1,0 +1,30 @@
+---
+title: "OFSTED full inspection results!"
+date: 2018-09-04
+preview: "Congratulations to MG Team for achieving GOOD grading in all areas at our first ever Ofsted full inspection!"
+tags: ["inspection", "ofsted"]
+---
+
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import image from "../../assets/images/posts/post-4/1.jpg";
+export const images = [
+  { img: image, alt: "Ofsted logo" },
+];
+
+<ArticleLayout
+title={frontmatter.title}
+date={frontmatter.date}
+images={images}
+>
+
+Some of the highlights in the report:
+
+“Staff show good teaching skills. They provide exciting learning opportunities that enthuse and motivate children”
+
+“There is a strong emphasis on children’s personal, social and emotional development.”
+
+“Children are happy and content, and demonstrate a good approach to learning.”
+
+Read full report [here](https://files.api.beta.ofsted.gov.uk/v1/file/2769795)
+
+</ArticleLayout>

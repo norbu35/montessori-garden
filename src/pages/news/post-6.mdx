@@ -1,0 +1,28 @@
+---
+title: "Open Day Saturday 8th Feb from 9.30am-11.30am"
+date: 2020-02-03
+preview: "Please come and join us for a cup of tea or coffee, as we walk you through our new babyroom and pre-school rooms."
+tags: ["open day", "event"]
+---
+
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import image from "../../assets/images/posts/post-5/1.webp";
+export const images =[{ img: image, alt: "join us for an open day" }]
+
+<ArticleLayout
+title={frontmatter.title}
+date={frontmatter.date}
+images={images}
+>
+
+We have exciting news! In response to working parents’ needs and requests,
+Montessori Garden is now expanding our services and will be accepting babies as
+young as 3 months old in our new babyroom in 2020!
+
+With a separate pre-school room, our older children will be able to work and
+play with the more advanced materials during work cycle, while still having the
+opportunity to interact with the younger children outside of the work cycle,
+following our belief in vertical grouping as an essential element of each
+child’s education.
+
+</ArticleLayout>

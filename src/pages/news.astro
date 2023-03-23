@@ -1,12 +1,12 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import SectionLayout from "src/layouts/SectionLayout.astro";
-import ArticlePreview from "src/layouts/ArticlePreview.astro";
+import ArticlePreviewLayout from "src/layouts/ArticlePreviewLayout.astro";
 const allArticles = await Astro.glob<Frontmatter>("../pages/news/*.mdx");
 
-const articlesSorted = allArticles
-  .sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))
-  .slice(0, 4);
+const articlesSorted = allArticles.sort((a, b) =>
+  a.frontmatter.date > b.frontmatter.date ? -1 : 1
+);
 
 interface Image {
   url: string;
@@ -17,30 +17,30 @@ interface Frontmatter {
   title: string;
   date: string;
   images: Image[];
+  preview: string;
 }
 ---
 
-<Layout
-  title="Latest News"
-  description="Get updated on our latest news and events"
->
-  <SectionLayout heading="Latest News">
+<Layout title="News" description="Our News archive">
+  <SectionLayout heading="News">
     {
       articlesSorted.map((post) => (
-        <div class="article">
-          <ArticlePreview
+        <article class="container">
+          <ArticlePreviewLayout
             title={post.frontmatter.title}
             url={post.url}
             date={post.frontmatter.date.slice(0, 10)}
-          />
-        </div>
+          >
+            {post.frontmatter.preview}
+          </ArticlePreviewLayout>
+        </article>
       ))
     }
   </SectionLayout>
 </Layout>
 
 <style lang="scss">
-  .article:not(:last-child) {
-    margin-bottom: 2em;
+  .container:not(:last-child) {
+    margin-bottom: 1em;
   }
 </style>

@@ -1,7 +1,7 @@
 ---
-import Layout from "./Layout.astro";
 const { title, date, images } = Astro.props;
 import { Image } from "astro:assets";
+import Button from "src/components/Button.astro";
 
 interface Image {
   img: ImageMetadata;
@@ -9,29 +9,29 @@ interface Image {
 }
 ---
 
-<Layout title={title}>
-  <article class="container">
-    <h1 class="heading">{title}</h1>
-    <div class="date">{date.slice(0, 10)}</div>
-    <div class="article">
-      <swiper-container navigation="true">
-        {
-          images.map((image: Image) => (
+<article class="container">
+  <h1 class="heading">{title}</h1>
+  <div class="date">{date.slice(0, 10)}</div>
+  <div class="article">
+    {
+      images ? (
+        <swiper-container navigation="true">
+          {images?.map((image: Image) => (
             <swiper-slide>
               <Image class="img" src={image.img} alt={image.alt} />
             </swiper-slide>
-          ))
-        }
-      </swiper-container>
-      <div class="text">
-        <slot />
-      </div>
+          ))}
+        </swiper-container>
+      ) : null
+    }
+    <div class="text">
+      <slot />
     </div>
-    <a href="/news">
-      <button class="btn-back">Back</button>
-    </a>
-  </article>
-</Layout>
+  </div>
+  <a href="/news">
+    <Button text="Back to News" />
+  </a>
+</article>
 
 <script>
   import { register } from "swiper/element/bundle";
@@ -75,7 +75,7 @@ interface Image {
 
     .heading {
       font-family: $font-h1;
-      font-size: 2rem;
+      font-size: 1rem;
 
       @media only screen and (min-width: $md) {
         height: 2em;
@@ -106,15 +106,11 @@ interface Image {
         margin: 0;
         height: 400px;
 
-        @media only screen and (min-width: $lg) {
-          height: 600px;
-        }
-
         swiper-slide {
           .img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
           }
         }
       }

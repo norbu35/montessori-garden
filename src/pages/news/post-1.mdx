@@ -1,28 +1,30 @@
 ---
 title: "Music with Emily"
 date: 2017-08-29
+preview: "We are very happy that Emily Dankworth, granddaughter of Dame Cleo Laine and Sir John Dankworth, Jazz Musicians, will be coming to do music sessions with the children at school."
 tags: ["events", "music"]
 ---
 
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import image from "../../assets/images/posts/post-1/1.jpg";
 import image2 from "../../assets/images/hero/hero.jpg";
-export const images = [
-  { img: image, alt: "Music with Emily" },
-  { img: image2, alt: "Test image" },
-];
+import "../../styles/vars.scss";
+export const images = [{ img: image, alt: "Music with Emily" }];
 
 <ArticleLayout
-  title={frontmatter.title}
-  date={frontmatter.date}
-  images={images}
+title={frontmatter.title}
+date={frontmatter.date}
+images={images}
+
 >
 
-We are very happy that Emily Dankworth, granddaughter of Dame Cleo Laine and
-Sir John Dankworth, Jazz Musicians, will be coming to do music sessions with
-the children at school. She specialises in Jazz-oriented music classes with
-Live musicians and instruments. Our first taster session was brilliant and our
-2 and 3 year olds were engaged for 45 minutes. Believe me, that’s a hard task
-to achieve 😊?
+<p>
+  We are very happy that Emily Dankworth, granddaughter of Dame Cleo Laine and
+  Sir John Dankworth, Jazz Musicians, will be coming to do music sessions with
+  the children at school. She specialises in Jazz-oriented music classes with
+  Live musicians and instruments. Our first taster session was brilliant and our
+  2 and 3 year olds were engaged for 45 minutes. Believe me, that’s a hard task
+  to achieve 😊?
+</p>
 
 </ArticleLayout>
