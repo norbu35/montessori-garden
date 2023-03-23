@@ -68,7 +68,11 @@ const { title, description } = Astro.props;
   function toggleButtonShow() {
     let st = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (st > lastScrollTop || window.scrollY < window.innerHeight / 2) {
+    if (
+      window.innerWidth > 992 ||
+      st > lastScrollTop ||
+      window.scrollY < window.innerHeight / 2
+    ) {
       upBtn.classList.remove("show-btn");
     } else if (st < lastScrollTop) {
       upBtn.classList.add("show-btn");
