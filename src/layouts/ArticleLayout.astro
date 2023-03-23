@@ -22,7 +22,7 @@ interface Props {
     {
       images ? (
         <swiper-container navigation="true">
-          {images?.map((image: Image) => (
+          {images.map((image: Image) => (
             <swiper-slide>
               <Image class="img" src={image.img} alt={image.alt} />
             </swiper-slide>
@@ -43,23 +43,25 @@ interface Props {
   import { register } from "swiper/element/bundle";
   import type { SwiperOptions } from "swiper";
 
-  register();
-
   interface SwiperElement extends HTMLElement {
     initialize(): CallableFunction;
   }
-
-  const swiperParams: SwiperOptions = {
-    createElements: true,
-    rewind: true,
-  };
 
   const swiperCarousel: SwiperElement = document.querySelector(
     "swiper-container"
   )! as SwiperElement;
 
-  Object.assign(swiperCarousel, swiperParams);
-  swiperCarousel.initialize();
+  if (swiperCarousel) {
+    register();
+
+    const swiperParams: SwiperOptions = {
+      createElements: true,
+      rewind: true,
+    };
+
+    Object.assign(swiperCarousel, swiperParams);
+    swiperCarousel.initialize();
+  }
 </script>
 
 <style lang="scss">
