@@ -84,9 +84,9 @@ const { title, description } = Astro.props;
 <style is:global lang="scss">
   @import "../styles/vars.scss";
 
-  /* body * { */
-  /*   border: 1px solid red; */
-  /* } */
+  body * {
+    border: 1px solid red;
+  }
 
   body * {
     @import "../styles/vars.scss";
@@ -102,9 +102,9 @@ const { title, description } = Astro.props;
     display: none;
     border-radius: 5px;
     border: 1px solid lightgrey;
-    height: 3em;
-    width: 2em;
-    opacity: 0.7;
+    height: 1.5em;
+    width: 1.5em;
+    opacity: 0.5;
     background-color: white;
     background-image: url("../assets/icons/icon-up.png");
     background-size: contain;
