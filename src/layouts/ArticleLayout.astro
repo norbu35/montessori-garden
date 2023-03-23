@@ -7,6 +7,12 @@ interface Image {
   img: ImageMetadata;
   alt: string;
 }
+
+interface Props {
+  title: string;
+  date: string;
+  images?: Image[];
+}
 ---
 
 <article class="container">

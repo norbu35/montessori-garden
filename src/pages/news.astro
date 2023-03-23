@@ -4,15 +4,9 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
 import ArticlePreviewLayout from "src/layouts/ArticlePreviewLayout.astro";
 const allArticles = await Astro.glob<Frontmatter>("../pages/news/*.mdx");
 
-interface Image {
-  url: string;
-  alt?: string;
-}
-
 interface Frontmatter {
   title: string;
   date: string;
-  images: Image[];
   preview: string;
 }
 ---
@@ -23,22 +17,14 @@ interface Frontmatter {
       allArticles
         .sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))
         .map((post) => (
-          <article class="container">
-            <ArticlePreviewLayout
-              title={post.frontmatter.title}
-              url={post.url}
-              date={post.frontmatter.date.slice(0, 10)}
-            >
-              {post.frontmatter.preview}
-            </ArticlePreviewLayout>
-          </article>
+          <ArticlePreviewLayout
+            title={post.frontmatter.title}
+            url={post.url}
+            date={post.frontmatter.date.slice(0, 10)}
+          >
+            {post.frontmatter.preview}
+          </ArticlePreviewLayout>
         ))
     }
   </SectionLayout>
 </Layout>
-
-<style lang="scss">
-  .container:not(:last-child) {
-    margin-bottom: 1em;
-  }
-</style>

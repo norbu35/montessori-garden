@@ -59,9 +59,9 @@ import icon_menu from "../assets/icons/icon-menu.webp";
   const button = document.querySelector(".menu-btn");
   const expandingLinks = document.querySelectorAll(".js-link--hover");
   let windowWidth = window.innerWidth;
-  setEventListeners();
+  attachEventListeners();
 
-  function setEventListeners() {
+  function attachEventListeners() {
     if (button === null || nav === null) {
       throw Error;
     } else {
@@ -69,13 +69,13 @@ import icon_menu from "../assets/icons/icon-menu.webp";
     }
 
     if (windowWidth < 992) {
-      setClickListeners();
+      attachClickListeners();
     } else {
-      setHoverListeners();
+      attachHoverListeners();
     }
   }
 
-  function setClickListeners() {
+  function attachClickListeners() {
     expandingLinks.forEach((el) => {
       el.addEventListener("click", toggleLinkExpand);
     });
@@ -87,7 +87,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
     });
   }
 
-  function setHoverListeners() {
+  function attachHoverListeners() {
     expandingLinks.forEach((el) => {
       el.addEventListener("mouseenter", onLinkExpand);
       el.addEventListener("mouseleave", onLinkClose);
@@ -150,10 +150,10 @@ import icon_menu from "../assets/icons/icon-menu.webp";
 
     if (windowWidth < 992) {
       removeHoverListeners();
-      setClickListeners();
+      attachClickListeners();
     } else {
       removeClickListeners();
-      setHoverListeners();
+      attachHoverListeners();
     }
   });
 
