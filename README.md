@@ -1,7 +1,6 @@
 To-Do:
 
 - Sample menu
-- Virtual tour
 
 # Astro Starter Kit: Basics
 
