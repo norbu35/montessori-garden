@@ -400,6 +400,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
             transition: height 400ms ease-out, padding 400ms ease-out;
             width: 250px;
             height: fit-content;
+            box-shadow: -5px 5px 5px -3px rgba(0, 0, 0, 0.69);
           }
 
           .link {
@@ -415,7 +416,13 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       max-height: 300px;
       height: fit-content;
       transition: max-height 400ms;
-      border-bottom: 1px solid $green;
+      box-shadow: -5px 5px 5px -3px rgba(0, 0, 0, 0.69);
+
+      @media only screen and (min-width: $md) {
+        box-shadow: none;
+        border-bottom: 1px solid $green;
+        border-left: 1px solid $green;
+      }
     }
   }
 </style>
