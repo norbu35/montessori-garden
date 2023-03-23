@@ -270,10 +270,11 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       position: absolute;
       right: 0;
       overflow: hidden;
-      transition: height 400ms;
+      transition: max-height 400ms;
       background-color: white;
       width: 100vw;
-      height: 0;
+      max-height: 0;
+      height: fit-content;
       font-family: "Mukta";
       font-weight: 500;
       color: $green;
@@ -391,6 +392,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
         }
 
         .sublinks--expanded {
+          z-index: 3;
           transition: width 400ms ease-out, padding 400ms ease-out;
           padding: 1em 0.5em;
           width: 250px;
@@ -413,8 +415,9 @@ import icon_menu from "../assets/icons/icon-menu.webp";
     }
 
     .nav--expanded {
-      height: 300px;
-      transition: height 400ms;
+      max-height: 300px;
+      height: fit-content;
+      transition: max-height 400ms;
     }
   }
 </style>
