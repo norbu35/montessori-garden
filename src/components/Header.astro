@@ -65,7 +65,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
     ) {
       el.querySelector("a")?.classList.add("link--active");
     }
-    if (!el.classList.contains("link--hover")) {
+    if (!el.classList.contains("link--hover") && windowWidth < 992) {
       el.addEventListener("click", onNavClose);
     }
   });
