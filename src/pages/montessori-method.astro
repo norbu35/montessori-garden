@@ -18,7 +18,7 @@ import montessori from "../assets/images/about-montessori/maria-montessori.jpg";
           class="img"
           src={montessori}
           alt="portrait of Dr. Maria Montessori"
-          height={230}
+          height={350}
         />
         <p>
           Montessori education is an educational approach developed by Italian
@@ -302,6 +302,11 @@ import montessori from "../assets/images/about-montessori/maria-montessori.jpg";
         height: 200px;
         object-fit: cover;
         object-position: top;
+
+        @media only screen and (min-width: $md) {
+          width: 250px;
+          height: 350px;
+        }
       }
     }
 
