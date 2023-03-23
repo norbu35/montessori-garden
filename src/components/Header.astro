@@ -71,6 +71,9 @@ import icon_menu from "../assets/icons/icon-menu.webp";
     ) {
       el.querySelector("a")?.classList.add("link--active");
     }
+    if (!el.classList.contains("link--hover")) {
+      el.addEventListener("click", onNavClose);
+    }
   });
 
   function attachEventListeners() {
@@ -243,13 +246,8 @@ import icon_menu from "../assets/icons/icon-menu.webp";
         display: none;
         align-items: center;
         display: flex;
-        margin-right: 10px;
         border: none;
         background: none;
-
-        @media only screen and (min-width: $md) {
-          margin-right: 15px;
-        }
 
         @media only screen and (min-width: $lg) {
           display: none;
@@ -274,10 +272,11 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       right: 0;
       overflow: hidden;
       transition: max-height 400ms;
-      background-color: white;
+      margin-right: 1em;
       width: 100vw;
       max-height: 0;
       height: fit-content;
+      background-color: white;
       font-family: "Mukta";
       font-weight: 500;
       color: $green;
