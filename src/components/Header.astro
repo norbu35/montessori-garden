@@ -65,7 +65,10 @@ import icon_menu from "../assets/icons/icon-menu.webp";
   attachEventListeners();
 
   links.forEach((el) => {
-    if (el.querySelector("a")?.getAttribute("href") === location.pathname) {
+    if (
+      el.querySelector("a")?.getAttribute("href") ===
+      window.location.pathname.slice(0, -1)
+    ) {
       el.querySelector("a")?.classList.add("link--active");
     }
   });
