@@ -12,13 +12,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       </a>
     </div>
     <button type="button" class="menu-btn">
-      <Image
-        class="menu-icon"
-        src={icon_menu}
-        alt="menu button"
-        width="38"
-        height="23"
-      />
+      <Image class="menu-icon" src={icon_menu} alt="menu button" />
     </button>
   </div>
   <nav class="nav" id="nav">
@@ -242,26 +236,25 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       }
 
       .menu-btn {
-        justify-content: center;
-        display: none;
-        align-items: center;
         display: flex;
         border: none;
         background: none;
+        width: 40px;
+        height: 25px;
+        margin-top: 1em;
+
+        @media only screen and (min-width: $md) {
+          margin: 2em 3em 0;
+        }
 
         @media only screen and (min-width: $lg) {
           display: none;
         }
 
         .menu-icon {
-          width: 30px;
-
-          height: 20px;
-
-          @media only screen and (min-width: $md) {
-            width: 35px;
-            height: 25px;
-          }
+          object-fit: fill;
+          width: 100%;
+          height: 100%;
         }
       }
     }
@@ -272,7 +265,6 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       right: 0;
       overflow: hidden;
       transition: max-height 400ms;
-      margin-right: 1em;
       width: 100vw;
       max-height: 0;
       height: fit-content;
@@ -420,6 +412,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       max-height: 300px;
       height: fit-content;
       transition: max-height 400ms;
+      border-bottom: 1px solid $green;
     }
   }
 </style>
