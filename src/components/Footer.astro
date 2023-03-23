@@ -197,19 +197,21 @@ import fah from "../assets/icons/logo-fah.png";
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        padding: 1em;
 
         .awards__logo {
           height: 60px;
           object-fit: contain;
 
           @media only screen and (min-width: $md) {
+            margin-top: 1.5em;
             height: 80px;
           }
         }
 
         @media only screen and (min-width: $md) {
           position: absolute;
-          margin: 225px;
+          margin: 205px;
           padding: 0 1.5em;
           width: $md;
           align-items: flex-start;
@@ -223,8 +225,11 @@ import fah from "../assets/icons/logo-fah.png";
         align-items: center;
         gap: 0.5em;
         display: flex;
-        padding: 1em;
         font-size: 0.825em;
+
+        @media only screen and (min-width: $md) {
+          padding: 1em 0 2em;
+        }
 
         @media only screen and (min-width: $lg) {
           gap: 0.75em;

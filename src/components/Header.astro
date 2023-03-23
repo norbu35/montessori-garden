@@ -57,9 +57,18 @@ import icon_menu from "../assets/icons/icon-menu.webp";
 <script>
   const nav = document.getElementById("nav");
   const button = document.querySelector(".menu-btn");
+  const links = document.querySelectorAll(".link");
   const expandingLinks = document.querySelectorAll(".js-link--hover");
+
   let windowWidth = window.innerWidth;
+
   attachEventListeners();
+
+  links.forEach((el) => {
+    if (el.querySelector("a")?.getAttribute("href") === location.pathname) {
+      el.querySelector("a")?.classList.add("link--active");
+    }
+  });
 
   function attachEventListeners() {
     if (button === null || nav === null) {
@@ -299,6 +308,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
           float: initial;
           gap: 0;
           justify-content: space-between;
+          margin-left: 1em;
           flex-direction: row;
           width: 100%;
           padding: 0;
@@ -344,6 +354,10 @@ import icon_menu from "../assets/icons/icon-menu.webp";
           }
         }
 
+        .link--active {
+          border-bottom: 2px solid $green;
+        }
+
         .sublinks {
           z-index: 0;
           position: absolute;
@@ -360,7 +374,7 @@ import icon_menu from "../assets/icons/icon-menu.webp";
 
           .link {
             font-size: 0.9em;
-            margin-left: 1em;
+            margin-right: 1em;
           }
 
           @media only screen and (min-width: $lg) {
@@ -387,6 +401,12 @@ import icon_menu from "../assets/icons/icon-menu.webp";
             transition: height 400ms ease-out, padding 400ms ease-out;
             width: 250px;
             height: fit-content;
+          }
+
+          .link {
+            @media only screen and (min-width: $lg) {
+              margin-left: 1em;
+            }
           }
         }
       }

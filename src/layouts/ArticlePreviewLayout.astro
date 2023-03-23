@@ -19,8 +19,8 @@ const { url, date, title } = Astro.props;
   @import "../styles/vars.scss";
 
   .container {
-    border: 1px solid $green;
     margin-top: 2em;
+    border: 1px solid $green;
 
     & a,
     & a:visited {
@@ -30,14 +30,17 @@ const { url, date, title } = Astro.props;
 
     .header {
       width: 100%;
-      padding: 1em 0.5em;
-      border-bottom: 1px solid $green;
-      background: $green;
+      flex-direction: column;
+      justify-content: flex-end;
+      display: flex;
+      border-bottom: 1px solid #32856f;
+      padding: 0.5em;
+      padding-left: 7px;
       font-size: 1.25em;
       font-family: $font-h1;
-      color: white;
 
       .date {
+        margin-bottom: 0.5em;
         font-size: 0.85em;
       }
     }
