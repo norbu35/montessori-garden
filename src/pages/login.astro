@@ -1,0 +1,59 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import SectionLayout from "src/layouts/SectionLayout.astro";
+---
+
+<Layout
+  title="Login | Montessori Garden Kentish Town"
+  description="Login to access Parents' Corner or Staff Area"
+>
+  <SectionLayout heading="Login">
+    <form action="/.netlify/functions/login.ts">
+      <label for="user"> Login as:</label>
+      <select id="user" name="user">
+        <option value="parent">Parent</option>
+        <option value="staff">Staff</option>
+      </select>
+      <label for="password"> Password:</label>
+      <input type="text" id="password" name="password" />
+      <input type="submit" value="Login" />
+    </form>
+  </SectionLayout>
+</Layout>
+
+<script>
+  var url = new URL(window.location.href);
+  const userType = url.searchParams.get("user");
+  const token = sessionStorage.getItem("_mg");
+
+  if (token) {
+    if (userType === "staff") location.href = "/staff-area";
+    location.href = "/parents-portal";
+  }
+
+  if (userType) {
+    const userField = document.getElementById("user") as HTMLElement;
+    const userOption = userField.querySelector(
+      `[value=${userType}]`
+    ) as HTMLOptionElement;
+    userOption.selected = true;
+  }
+
+  async function handleLogin(event: Event) {
+    event.preventDefault();
+
+    const formData: FormData = new FormData(
+      event.currentTarget as HTMLFormElement
+    );
+    const user = formData.get("user");
+    const password = formData.get("password");
+
+    const response = await fetch("/handleLogin", {
+      method: "POST",
+      body: JSON.stringify({ user: user, password: password }),
+    });
+  }
+
+  const form = document.querySelector("form");
+  form?.addEventListener("submit", handleLogin);
+</script>

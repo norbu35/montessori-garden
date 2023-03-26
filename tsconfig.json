@@ -1,6 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "baseUrl": ".",
     "plugins": [
       {
