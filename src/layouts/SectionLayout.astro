@@ -3,9 +3,15 @@ interface Props {
   heading?: string;
   headingColor?: string;
   bgColor?: string;
+  isHeadingImg?: string;
 }
 
-const { heading, bgColor = "white", headingColor = "white" } = Astro.props;
+const {
+  heading,
+  bgColor = "white",
+  headingColor = "white",
+  isHeadingImg,
+} = Astro.props;
 ---
 
 <section class="container">
@@ -13,7 +19,7 @@ const { heading, bgColor = "white", headingColor = "white" } = Astro.props;
   <slot />
 </section>
 
-<style lang="scss" define:vars={{ bgColor, headingColor }}>
+<style lang="scss" define:vars={{ bgColor, headingColor, isHeadingImg }}>
   @import "../styles/vars.scss";
 
   .container {
@@ -40,9 +46,10 @@ const { heading, bgColor = "white", headingColor = "white" } = Astro.props;
         display: flex;
         align-items: flex-end;
         background-image: url("../assets/images/bg-heading2.png");
+        background-image: var(--isHeadingImg);
         background-position: center;
         background-size: cover;
-        color: white;
+        color: var(--headingColor);
         font-size: 2.5em;
         margin: 0 0 1em;
         padding-left: 8px;
