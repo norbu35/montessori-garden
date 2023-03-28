@@ -9,19 +9,21 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
   title="Login | Montessori Garden Kentish Town"
   description="Login to access Parents' Corner or Staff Area"
 >
-  <SectionLayout heading="Login">
-    <form action="/.netlify/functions/login.ts">
-      <label for="user"> Enter as:</label>
-      <select id="user" name="user">
-        <option value="parent">Parent</option>
-        <option value="staff">Staff</option>
-      </select>
-      <label for="password"> Password:</label>
-      <input type="text" id="password" name="password" />
-      <input type="submit" value="Login" />
-    </form>
-    <div id="message"></div>
-  </SectionLayout>
+  <div class="container">
+    <SectionLayout heading="Login">
+      <form action="/.netlify/functions/login.ts">
+        <label for="user"> Enter as:</label>
+        <select id="user" name="user">
+          <option value="parent">Parent</option>
+          <option value="staff">Staff</option>
+        </select>
+        <label for="password"> Password:</label>
+        <input type="text" id="password" name="password" />
+        <input type="submit" value="Login" />
+      </form>
+      <div id="message"></div>
+    </SectionLayout>
+  </div>
 </Layout>
 
 <script>
@@ -82,3 +84,17 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
   const form = document.querySelector("form");
   form?.addEventListener("submit", handleLogin);
 </script>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+  @import "../styles/section.scss";
+
+  .container {
+    min-height: calc(100vh - $ht-footer-lg - $ht-header-md);
+
+    #message {
+      margin: 1em 0;
+      color: red;
+    }
+  }
+</style>
