@@ -10,6 +10,6 @@ export default defineConfig({
   },
   site: "https://montessorigarden.netlify.app",
   output: "server",
-  integrations: [sitemap(), mdx()],
   adapter: netlify(),
+  integrations: [sitemap(), mdx()],
 });
