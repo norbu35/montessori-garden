@@ -18,18 +18,18 @@
     "@fontsource/open-sans": "^4.5.14",
     "@fontsource/poppins": "^4.5.10",
     "js-year-calendar": "^2.0.0",
-    "swiper": "^9.1.0"
+    "swiper": "^9.1.1"
   },
   "devDependencies": {
     "@astrojs/mdx": "^0.18.2",
     "@astrojs/netlify": "^2.2.0",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/ts-plugin": "^0.4.4",
-    "@typescript-eslint/parser": "^5.55.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "astro": "^2.1.7",
     "astro-eslint-parser": "^0.12.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "jose": "^4.13.1",
