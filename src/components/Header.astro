@@ -41,388 +41,392 @@ import icon_menu from "../assets/icons/icon-menu.webp";
       </li>
       <li class="link"><a href="/contact">Contact</a></li>
       <li class="link"><a href="/visit">Visit Us</a></li>
-      <li class="link">Parents' Corner</li>
-      <li class="link link--secondary">Staff Area</li>
+      <li class="link">
+        <a href="/login?user=parent">Parents' Corner</a>
+      </li>
+      <li class="link link--secondary">
+        <a href="login?user=staff">Staff Area</a>
+      </li>
     </ul>
   </nav>
-</header>
-<button class="btn-top"></button>
+  <button class="btn-top"></button>
 
-<script>
-  const nav = document.getElementById("nav");
-  const button = document.querySelector(".menu-btn");
-  const links = document.querySelectorAll(".link");
-  const expandingLinks = document.querySelectorAll(".js-link--hover");
+  <script>
+    const nav = document.getElementById("nav");
+    const button = document.querySelector(".menu-btn");
+    const links = document.querySelectorAll(".link");
+    const expandingLinks = document.querySelectorAll(".js-link--hover");
 
-  let windowWidth = window.innerWidth;
+    let windowWidth = window.innerWidth;
 
-  attachEventListeners();
+    attachEventListeners();
 
-  links.forEach((el) => {
-    if (
-      el.querySelector("a")?.getAttribute("href") ===
-      window.location.pathname.slice(0, -1)
-    ) {
-      el.querySelector("a")?.classList.add("link--active");
-    }
-    if (!el.classList.contains("link--hover") && windowWidth < 992) {
-      el.addEventListener("click", onNavClose);
-    }
-  });
-
-  function attachEventListeners() {
-    if (button === null || nav === null) {
-      throw Error;
-    } else {
-      button.addEventListener("click", toggleNavExpand);
-    }
-
-    if (windowWidth < 992) {
-      attachClickListeners();
-    } else {
-      attachHoverListeners();
-    }
-  }
-
-  function attachClickListeners() {
-    expandingLinks.forEach((el) => {
-      el.addEventListener("click", toggleLinkExpand);
+    links.forEach((el) => {
+      if (
+        el.querySelector("a")?.getAttribute("href") ===
+        window.location.pathname.slice(0, -1)
+      ) {
+        el.querySelector("a")?.classList.add("link--active");
+      }
+      if (!el.classList.contains("link--hover") && windowWidth < 992) {
+        el.addEventListener("click", onNavClose);
+      }
     });
-  }
 
-  function removeClickListeners() {
-    expandingLinks.forEach((el) => {
-      el.removeEventListener("click", toggleLinkExpand);
-    });
-  }
-
-  function attachHoverListeners() {
-    expandingLinks.forEach((el) => {
-      el.addEventListener("mouseenter", onLinkExpand);
-      el.addEventListener("mouseleave", onLinkClose);
-    });
-  }
-
-  function removeHoverListeners() {
-    expandingLinks.forEach((el) => {
-      el.removeEventListener("mouseenter", onLinkExpand);
-      el.removeEventListener("mouseleave", onLinkClose);
-    });
-  }
-
-  function toggleNavExpand() {
-    nav?.classList.toggle("nav--expanded");
-    onLinkCloseAll();
-  }
-
-  function onNavClose() {
-    nav?.classList.remove("nav--expanded");
-    onLinkCloseAll();
-  }
-
-  function toggleLinkExpand(e: Event): void {
-    onLinkCloseAll();
-    const target = e.target as HTMLElement;
-    const directChild = target.querySelector(":scope > .sublinks");
-    if (directChild) {
-      directChild.classList.toggle("sublinks--expanded");
-    }
-  }
-
-  function onLinkExpand(e: Event): void {
-    const target = e.target as HTMLElement;
-    const directChild = target.querySelector(":scope > .sublinks");
-    if (directChild) {
-      directChild.classList.add("sublinks--expanded");
-    }
-  }
-
-  function onLinkCloseAll() {
-    expandingLinks.forEach((el) => {
-      const target = el.querySelector(".sublinks") as HTMLElement;
-      target.classList.remove("sublinks--expanded");
-    });
-  }
-
-  function onLinkClose(e: Event): void {
-    const target = e.target as HTMLElement;
-    const directChild = target.querySelector(":scope > .sublinks");
-    if (directChild) {
-      directChild.classList.toggle("sublinks--expanded");
-    }
-  }
-
-  window.addEventListener("resize", () => {
-    windowWidth = window.innerWidth;
-    onNavClose();
-    onLinkCloseAll();
-
-    if (windowWidth < 992) {
-      removeHoverListeners();
-      attachClickListeners();
-    } else {
-      removeClickListeners();
-      attachHoverListeners();
-    }
-  });
-
-  window.addEventListener("scroll", onNavClose);
-  window.addEventListener("scroll", onLinkClose);
-</script>
-
-<style lang="scss">
-  @import "../styles/vars.scss";
-
-  .container {
-    height: $ht-header-sm;
-    background-color: white;
-
-    @media only screen and (min-width: $md) {
-      height: $ht-header-md;
-    }
-
-    .banner {
-      justify-content: space-between;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      padding: 0 1em;
-
-      .logo {
-        width: 17%;
+    function attachEventListeners() {
+      if (button === null || nav === null) {
+        throw Error;
+      } else {
+        button.addEventListener("click", toggleNavExpand);
       }
 
-      .title {
-        justify-content: center;
-        flex-direction: column;
-        display: flex;
-        color: $green;
-
-        @media only screen and (min-width: $md) {
-          padding-left: 3rem;
-        }
-
-        a:visited,
-        a {
-          text-decoration: none;
-          color: $green;
-        }
-
-        .main {
-          align-items: center;
-          display: flex;
-          height: 60%;
-          font-size: 2.25rem;
-          font-family: "Caveat";
-          font-weight: 600;
-
-          @media only screen and (min-width: $md) {
-            font-size: 3rem;
-          }
-        }
-
-        .sub {
-          align-items: center;
-          display: flex;
-          height: 40%;
-          margin-top: -8px;
-          font-size: 1.25rem;
-          font-family: "Mukta";
-          font-weight: 500;
-          @media only screen and (min-width: $md) {
-            font-size: 1.5rem;
-          }
-        }
-      }
-
-      .menu-btn {
-        display: flex;
-        border: none;
-        background: none;
-        width: 40px;
-        height: 22px;
-        margin-top: 20px;
-
-        @media only screen and (min-width: $md) {
-          width: 45px;
-          height: 25px;
-          margin: 3em 2em 0;
-        }
-
-        @media only screen and (min-width: $lg) {
-          display: none;
-        }
-
-        .menu-icon {
-          object-fit: fill;
-          width: 100%;
-          height: 100%;
-        }
+      if (windowWidth < 992) {
+        attachClickListeners();
+      } else {
+        attachHoverListeners();
       }
     }
 
-    .nav {
-      z-index: 2;
-      position: absolute;
-      right: 0;
-      overflow: hidden;
-      transition: max-height 400ms;
-      width: 100vw;
-      max-height: 0;
-      height: fit-content;
+    function attachClickListeners() {
+      expandingLinks.forEach((el) => {
+        el.addEventListener("click", toggleLinkExpand);
+      });
+    }
+
+    function removeClickListeners() {
+      expandingLinks.forEach((el) => {
+        el.removeEventListener("click", toggleLinkExpand);
+      });
+    }
+
+    function attachHoverListeners() {
+      expandingLinks.forEach((el) => {
+        el.addEventListener("mouseenter", onLinkExpand);
+        el.addEventListener("mouseleave", onLinkClose);
+      });
+    }
+
+    function removeHoverListeners() {
+      expandingLinks.forEach((el) => {
+        el.removeEventListener("mouseenter", onLinkExpand);
+        el.removeEventListener("mouseleave", onLinkClose);
+      });
+    }
+
+    function toggleNavExpand() {
+      nav?.classList.toggle("nav--expanded");
+      onLinkCloseAll();
+    }
+
+    function onNavClose() {
+      nav?.classList.remove("nav--expanded");
+      onLinkCloseAll();
+    }
+
+    function toggleLinkExpand(e: Event): void {
+      onLinkCloseAll();
+      const target = e.target as HTMLElement;
+      const directChild = target.querySelector(":scope > .sublinks");
+      if (directChild) {
+        directChild.classList.toggle("sublinks--expanded");
+      }
+    }
+
+    function onLinkExpand(e: Event): void {
+      const target = e.target as HTMLElement;
+      const directChild = target.querySelector(":scope > .sublinks");
+      if (directChild) {
+        directChild.classList.add("sublinks--expanded");
+      }
+    }
+
+    function onLinkCloseAll() {
+      expandingLinks.forEach((el) => {
+        const target = el.querySelector(".sublinks") as HTMLElement;
+        target.classList.remove("sublinks--expanded");
+      });
+    }
+
+    function onLinkClose(e: Event): void {
+      const target = e.target as HTMLElement;
+      const directChild = target.querySelector(":scope > .sublinks");
+      if (directChild) {
+        directChild.classList.toggle("sublinks--expanded");
+      }
+    }
+
+    window.addEventListener("resize", () => {
+      windowWidth = window.innerWidth;
+      onNavClose();
+      onLinkCloseAll();
+
+      if (windowWidth < 992) {
+        removeHoverListeners();
+        attachClickListeners();
+      } else {
+        removeClickListeners();
+        attachHoverListeners();
+      }
+    });
+
+    window.addEventListener("scroll", onNavClose);
+    window.addEventListener("scroll", onLinkClose);
+  </script>
+
+  <style lang="scss">
+    @import "../styles/vars.scss";
+
+    .container {
+      height: $ht-header-sm;
       background-color: white;
-      font-family: "Mukta";
-      font-weight: 500;
-      color: $green;
 
       @media only screen and (min-width: $md) {
-        padding: 0 2rem;
-        width: 70vw;
+        height: $ht-header-md;
       }
 
-      @media only screen and (min-width: $lg) {
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        overflow: visible;
-        height: 2em;
-        width: 625px;
-        padding: 0;
-        font-size: 1em;
-        margin-right: 2em;
-      }
-
-      .links {
-        z-index: 1;
-        position: aboslute;
-        float: right;
-        flex-direction: column;
+      .banner {
+        justify-content: space-between;
         display: flex;
-        gap: 1em;
-        width: 50%;
-        padding: 1em 1.5em;
+        width: 100%;
+        height: 100%;
+        padding: 0 1em;
 
-        @media only screen and (min-width: $lg) {
-          float: initial;
-          gap: 0;
-          justify-content: space-between;
-          margin-left: 1em;
-          flex-direction: row;
-          width: 100%;
-          padding: 0;
+        .logo {
+          width: 17%;
         }
 
-        .link {
-          justify-content: flex-end;
-          align-items: center;
+        .title {
+          justify-content: center;
+          flex-direction: column;
           display: flex;
-          height: 1.5em;
-          transition: transform 200ms ease;
-          position: relative;
+          color: $green;
 
-          &:hover {
-            transform: scale(115%);
+          @media only screen and (min-width: $md) {
+            padding-left: 3rem;
           }
 
-          @media only screen and (min-width: $lg) {
-            justify-content: center;
-          }
-
-          & > a,
-          & > :visited {
+          a:visited,
+          a {
             text-decoration: none;
             color: $green;
           }
+
+          .main {
+            align-items: center;
+            display: flex;
+            height: 60%;
+            font-size: 2.25rem;
+            font-family: "Caveat";
+            font-weight: 600;
+
+            @media only screen and (min-width: $md) {
+              font-size: 3rem;
+            }
+          }
+
+          .sub {
+            align-items: center;
+            display: flex;
+            height: 40%;
+            margin-top: -8px;
+            font-size: 1.25rem;
+            font-family: "Mukta";
+            font-weight: 500;
+            @media only screen and (min-width: $md) {
+              font-size: 1.5rem;
+            }
+          }
         }
 
-        .link--hover:before {
-          content: "←";
-          align-items: center;
+        .menu-btn {
           display: flex;
-          margin-right: 1em;
+          border: none;
+          background: none;
+          width: 40px;
+          height: 22px;
+          margin-top: 20px;
+
+          @media only screen and (min-width: $md) {
+            width: 45px;
+            height: 25px;
+            margin: 3em 2em 0;
+          }
 
           @media only screen and (min-width: $lg) {
             display: none;
           }
-        }
 
-        .link--secondary {
-          @media only screen and (min-width: $lg) {
-            display: none;
+          .menu-icon {
+            object-fit: fill;
+            width: 100%;
+            height: 100%;
           }
         }
+      }
 
-        .link--active {
-          border-bottom: 2px solid $green;
+      .nav {
+        z-index: 2;
+        position: absolute;
+        right: 0;
+        overflow: hidden;
+        transition: max-height 400ms;
+        width: 100vw;
+        max-height: 0;
+        height: fit-content;
+        background-color: white;
+        font-family: "Mukta";
+        font-weight: 500;
+        color: $green;
+
+        @media only screen and (min-width: $md) {
+          padding: 0 2rem;
+          width: 70vw;
         }
 
-        .sublinks {
-          z-index: 0;
+        @media only screen and (min-width: $lg) {
           position: absolute;
-          right: 100%;
-          top: -1em;
-          gap: 1em;
+          top: 70px;
+          right: 20px;
+          overflow: visible;
+          height: 2em;
+          width: 625px;
+          padding: 0;
+          font-size: 1em;
+          margin-right: 2em;
+        }
+
+        .links {
+          z-index: 1;
+          position: aboslute;
+          float: right;
           flex-direction: column;
           display: flex;
-          overflow: hidden;
-          transition: width 400ms, padding 400ms ease-out, margin 400ms ease;
-          width: 0;
-          padding: 1em 0;
-          white-space: nowrap;
-
-          .link {
-            font-size: 0.9em;
-            margin-right: 1em;
-          }
+          gap: 1em;
+          width: 50%;
+          padding: 1em 1.5em;
 
           @media only screen and (min-width: $lg) {
-            top: 1.5em;
-            left: 0;
-            transition: height 400ms ease, margin 400ms ease;
-            justify-content: flex-start;
-            align-items: flex-start;
-            width: 250px;
-            height: 0;
+            float: initial;
+            gap: 0;
+            justify-content: space-between;
+            margin-left: 1em;
+            flex-direction: row;
+            width: 100%;
             padding: 0;
-            background-color: white;
-          }
-        }
-
-        .sublinks--expanded {
-          z-index: 3;
-          transition: width 400ms ease-out, padding 400ms ease-out;
-          padding: 1em 0.5em;
-          width: 250px;
-          white-space: nowrap;
-          transition-delay: 0.4s;
-
-          @media only screen and (min-width: $lg) {
-            transition: height 400ms ease-out, padding 400ms ease-out;
-            width: 250px;
-            height: fit-content;
-            box-shadow: -5px 5px 5px -3px rgba(0, 0, 0, 0.69);
           }
 
           .link {
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
+            height: 1.5em;
+            transition: transform 200ms ease;
+            position: relative;
+
+            &:hover {
+              transform: scale(115%);
+            }
+
             @media only screen and (min-width: $lg) {
-              margin-left: 1em;
+              justify-content: center;
+            }
+
+            & > a,
+            & > :visited {
+              text-decoration: none;
+              color: $green;
+            }
+          }
+
+          .link--hover:before {
+            content: "←";
+            align-items: center;
+            display: flex;
+            margin-right: 1em;
+
+            @media only screen and (min-width: $lg) {
+              display: none;
+            }
+          }
+
+          .link--secondary {
+            @media only screen and (min-width: $lg) {
+              display: none;
+            }
+          }
+
+          .link--active {
+            border-bottom: 2px solid $green;
+          }
+
+          .sublinks {
+            z-index: 0;
+            position: absolute;
+            right: 100%;
+            top: -1em;
+            gap: 1em;
+            flex-direction: column;
+            display: flex;
+            overflow: hidden;
+            transition: width 400ms, padding 400ms ease-out, margin 400ms ease;
+            width: 0;
+            padding: 1em 0;
+            white-space: nowrap;
+
+            .link {
+              font-size: 0.9em;
+              margin-right: 1em;
+            }
+
+            @media only screen and (min-width: $lg) {
+              top: 1.5em;
+              left: 0;
+              transition: height 400ms ease, margin 400ms ease;
+              justify-content: flex-start;
+              align-items: flex-start;
+              width: 250px;
+              height: 0;
+              padding: 0;
+              background-color: white;
+            }
+          }
+
+          .sublinks--expanded {
+            z-index: 3;
+            transition: width 400ms ease-out, padding 400ms ease-out;
+            padding: 1em 0.5em;
+            width: 250px;
+            white-space: nowrap;
+            transition-delay: 0.4s;
+
+            @media only screen and (min-width: $lg) {
+              transition: height 400ms ease-out, padding 400ms ease-out;
+              width: 250px;
+              height: fit-content;
+              box-shadow: -5px 5px 5px -3px rgba(0, 0, 0, 0.69);
+            }
+
+            .link {
+              @media only screen and (min-width: $lg) {
+                margin-left: 1em;
+              }
             }
           }
         }
       }
-    }
 
-    .nav--expanded {
-      max-height: 300px;
-      height: fit-content;
-      transition: max-height 400ms;
-      box-shadow: -5px 5px 5px -3px rgba(0, 0, 0, 0.69);
+      .nav--expanded {
+        max-height: 300px;
+        height: fit-content;
+        transition: max-height 400ms;
+        box-shadow: -5px 5px 5px -3px rgba(0, 0, 0, 0.69);
 
-      @media only screen and (min-width: $md) {
-        box-shadow: none;
-        border-bottom: 1px solid $green;
-        border-left: 1px solid $green;
+        @media only screen and (min-width: $md) {
+          box-shadow: none;
+          border-bottom: 1px solid $green;
+          border-left: 1px solid $green;
+        }
       }
     }
-  }
-</style>
+  </style>
+</header>

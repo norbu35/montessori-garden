@@ -1,2 +1,101 @@
 ---
+import * as jose from "jose";
+import Layout from "../layouts/Layout.astro";
+import SectionLayout from "src/layouts/SectionLayout.astro";
+
+const secret = import.meta.env.SECRET;
+const url = new URL(Astro.request.url);
+const token = url.searchParams.get("token");
+const key = new TextEncoder().encode(secret);
+
+if (token) {
+  try {
+    const { payload } = await jose.jwtVerify(token, key);
+    if (payload.user !== "parent") return Astro.redirect("/login");
+  } catch (Error) {
+    return Astro.redirect("/login?renew=true");
+  }
+}
 ---
+
+<Layout
+  title="Parents' Corner"
+  description="Information for parents | Montessori Garden"
+>
+  <SectionLayout heading="Parents' Corner">
+    <h2>Parents' Involvement</h2>
+    <p>
+      We welcome and encourage parents to come in to share their skills,
+      cultures and traditions or to just read a book or do gardening with the
+      children. Please let Manager on Duty know if you are interested and we
+      will be happy to set it up.
+    </p>
+    <h2>Communication</h2>
+    <p>
+      When drop-off and pick-up become a bit busy for detailed conversations,
+      our parents are invited to arrange a convenient time by ringing the School
+      directly on the following numbers: Montessori Garden Kentish Town - 020
+      3441 5860 or 07470 984 783 or contact@montessorigarden.co.uk
+    </p>
+    <h2>Current Staff</h2>
+    <p>
+      Parents can view our current staff introduction on the Parents' Notice
+      Board in the Hallway.
+    </p>
+    <h2>Useful documents</h2>
+    <ul>
+      <li>
+        <a href="/documents/terms-and-conditions.pdf" class="download"
+          >Terms & Conditions (June 2020)</a
+        >
+      </li>
+      <li>
+        <a href="/documents/change-of-tenure.pdf" class="download"
+          >Change of Tenure Form</a
+        >
+      </li>
+    </ul>
+    <h2>Policies & Procedures</h2>
+    <p>
+      Our Policies & Procedures most relevant for Parents can be accessed
+      through the links below and the full version can be viewed at the setting.
+    </p>
+    <ul>
+      <li></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+      <li><a href="" class="download"></a></li>
+    </ul>
+  </SectionLayout>
+</Layout>
+
+<script>
+  const token = sessionStorage.getItem("_mg");
+
+  const links = document.querySelectorAll(".download");
+  links.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const el = e.target as HTMLElement;
+      const url = el.getAttribute("href")!;
+
+      fetch(url, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+    });
+  });
+</script>
+
+<style lang="scss">
+  @import "../styles/vars.scss";
+  @import "../styles/section.scss";
+</style>

@@ -9,7 +9,7 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
 >
   <SectionLayout heading="Login">
     <form action="/.netlify/functions/login.ts">
-      <label for="user"> Login as:</label>
+      <label for="user"> Enter as:</label>
       <select id="user" name="user">
         <option value="parent">Parent</option>
         <option value="staff">Staff</option>
@@ -18,17 +18,24 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
       <input type="text" id="password" name="password" />
       <input type="submit" value="Login" />
     </form>
+    <div id="message"></div>
   </SectionLayout>
 </Layout>
 
 <script>
+  const token = sessionStorage.getItem("_mg");
   var url = new URL(window.location.href);
   const userType = url.searchParams.get("user");
-  const token = sessionStorage.getItem("_mg");
+  const renew = url.searchParams.get("renew");
+
+  if (renew === "true") sessionStorage.clear();
 
   if (token) {
-    if (userType === "staff") location.href = "/staff-area";
-    location.href = "/parents-portal";
+    if (userType === "parent") {
+      location.href = "/parents-corner?token=" + token;
+    } else if (userType === "staff") {
+      location.href = "/staff-area?token=" + token;
+    }
   }
 
   if (userType) {
@@ -48,10 +55,26 @@ import SectionLayout from "src/layouts/SectionLayout.astro";
     const user = formData.get("user");
     const password = formData.get("password");
 
-    const response = await fetch("/handleLogin", {
+    const response = await fetch("/handleLogin.api", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user: user, password: password }),
     });
+
+    if (response.ok) {
+      const json = await response.json();
+      console.log(json);
+      sessionStorage.setItem("_mg", json.token);
+
+      if (user === "parent") {
+        location.href = "/parents-corner?token=" + json.token;
+      } else {
+        location.href = "/staff-area?token=" + json.token;
+      }
+    } else {
+      const messageEl = document.getElementById("message") as HTMLElement;
+      messageEl.innerText = "Wrong password";
+    }
   }
 
   const form = document.querySelector("form");
