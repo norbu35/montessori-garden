@@ -9,7 +9,7 @@ interface Props {
 const {
   heading,
   bgColor = "white",
-  headingColor = "white",
+  headingColor = "black",
   isHeadingImg,
 } = Astro.props;
 ---
@@ -46,7 +46,6 @@ const {
         display: flex;
         align-items: flex-end;
         background-image: url("../assets/images/bg-heading2.png");
-        background-image: var(--isHeadingImg);
         background-position: center;
         background-size: cover;
         color: var(--headingColor);
