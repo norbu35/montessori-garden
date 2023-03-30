@@ -1,42 +1,36 @@
 ---
-import SectionLayout from "../layouts/SectionLayout.astro";
 import TileLinks from "./TileLinks.astro";
 ---
 
 <div class="container">
-  <div class="inner">
-    <SectionLayout
-      bgColor="transparent"
-      heading="Our Approach"
-      isHeadingImg="none"
-    >
-      <p>
-        We are a small family-run nursery school driven by the love and passion
-        of children and their development, and we believe in the natural
-        capabilities of each child to effortlessly learn with joy.
-      </p>
-      <p>
-        Our thoughtfully prepared environment is curated to support their
-        individual needs and interests and has a great influence in optimising
-        education, learning and development - setting a solid base for a
-        lifelong joy of learning.
-      </p>
-      <p>
-        All our staff share our core values and are with us because they are
-        committed to providing exceptional care that fosters love and trust.
-        Every child has the potential to be great, and we're here to help them
-        discover and develop their natural abilities.
-      </p>
-      <p>
-        We believe that education is not just about what children learn, but
-        also how they learn, and we're dedicated to providing an experience that
-        will stay with your child for life.
-      </p>
-    </SectionLayout>
+  <section class="section-container">
+    <h1>Our Approach</h1>
+    <p>
+      We are a small family-run nursery school driven by the love and passion of
+      children and their development, and we believe in the natural capabilities
+      of each child to effortlessly learn with joy.
+    </p>
+    <p>
+      Our thoughtfully prepared environment is curated to support their
+      individual needs and interests and has a great influence in optimising
+      education, learning and development - setting a solid base for a lifelong
+      joy of learning.
+    </p>
+    <p>
+      All our staff share our core values and are with us because they are
+      committed to providing exceptional care that fosters love and trust. Every
+      child has the potential to be great, and we're here to help them discover
+      and develop their natural abilities.
+    </p>
+    <p>
+      We believe that education is not just about what children learn, but also
+      how they learn, and we're dedicated to providing an experience that will
+      stay with your child for life.
+    </p>
     <div class="tile-links">
       <TileLinks />
     </div>
-  </div>
+  </section>
 </div>
 
 <style lang="scss">
@@ -45,8 +39,8 @@ import TileLinks from "./TileLinks.astro";
 
   .container {
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
-    align-items: center;
     height: 100%;
     overflow: hidden;
 
@@ -59,6 +53,21 @@ import TileLinks from "./TileLinks.astro";
 
     @media only screen and (min-width: $xl) {
       background-position: -520px;
+    }
+
+    h1 {
+      font-family: $font-h1;
+      font-size: 2rem;
+      margin: 1em 0;
+
+      @media only screen and (min-width: $md) {
+        height: 2em;
+        display: flex;
+        align-items: flex-end;
+        font-size: 2.5em;
+        margin: 0 0 1em;
+        padding-left: 8px;
+      }
     }
 
     p {
@@ -82,17 +91,53 @@ import TileLinks from "./TileLinks.astro";
 
     .tile-links {
       display: flex;
-      padding: 1em;
       max-width: $md;
       height: 500px;
       max-height: 50vh;
+      margin-top: 1em;
 
       @media only screen and (min-width: $md) {
-        margin: 0 3em 3em;
+        margin: 3em;
       }
 
       @media only screen and (min-width: $lg) {
         max-height: 600px;
+      }
+    }
+
+    .section-container {
+      flex-direction: column;
+      justify-content: space-evently;
+      display: flex;
+      padding: 1em;
+      background-color: var(--bgColor);
+      max-width: $xl;
+
+      @media only screen and (min-width: $md) {
+        padding: 4rem;
+      }
+
+      @media only screen and (min-width: $lg) {
+        font-size: 18px;
+      }
+
+      .heading {
+        font-family: $font-h1;
+        font-size: 2rem;
+        margin: 1em 0;
+
+        @media only screen and (min-width: $md) {
+          height: 2em;
+          display: flex;
+          align-items: flex-end;
+          background-image: url("../assets/images/bg-heading2.png");
+          background-position: center;
+          background-size: cover;
+          color: var(--headingColor);
+          font-size: 2.5em;
+          margin: 0 0 1em;
+          padding-left: 8px;
+        }
       }
     }
   }

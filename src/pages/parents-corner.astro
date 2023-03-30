@@ -1,7 +1,7 @@
 ---
 import * as jose from "jose";
 import Layout from "../layouts/Layout.astro";
-import SectionLayout from "src/layouts/SectionLayout.astro";
+import SectionLayout from "../layouts/SectionLayout.astro";
 
 const secret = import.meta.env.SECRET;
 const url = new URL(Astro.request.url);
@@ -12,7 +12,7 @@ if (token) {
   try {
     const { payload } = await jose.jwtVerify(token, key);
     if (payload.user !== "parent") return Astro.redirect("/login");
-  } catch (Error) {
+  } catch (e) {
     return Astro.redirect("/login?renew=true");
   }
 }
