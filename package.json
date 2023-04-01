@@ -18,7 +18,7 @@
     "@fontsource/open-sans": "^4.5.14",
     "@fontsource/poppins": "^4.5.10",
     "js-year-calendar": "^2.0.0",
-    "sharp": "0.31.3",
+    "sharp": "^0.32.0",
     "swiper": "^9.2.0"
   },
   "devDependencies": {
@@ -40,5 +40,12 @@
     "rollup": "^3.20.2",
     "sass": "^1.60.0",
     "typescript": "^4.9.5"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "sharp": "0.32.0"
+      }
+    }
   }
 }
