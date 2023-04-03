@@ -44,8 +44,14 @@ if (token) {
     </p>
     <h2>Useful documents</h2>
     <ul>
-      <li>Terms & Conditions (June 2020)</li>
-      <li>Change of Tenure Form</li>
+      <li>
+        <a href="/terms-and-conditions.pdf" class="download"
+          >Terms & Conditions (June 2020)</a
+        >
+      </li>
+      <li>
+        <a href="/change-of-tenure.pdf" class="download">Change of Tenure</a>
+      </li>
     </ul>
     <h2>Policies & Procedures</h2>
     <p>
@@ -53,36 +59,92 @@ if (token) {
       through the links below and the full version can be viewed at the setting.
     </p>
     <ul>
-      <li></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
-      <li><a href="" class="download"></a></li>
+      <li>
+        <a href="/vision-ethos-beliefs.pdf" class="download"
+          >Our Vision and Ethos</a
+        >
+      </li>
+      <li>
+        <a href="/settling-in.pdf" class="download"
+          >Admissions and Settling In</a
+        >
+      </li>
+      <li>
+        <a href="/concerns-and-complaints.pdf" class="download"
+          >Concerns and Complaints</a
+        >
+      </li>
+      <li>
+        <a href="/sickness-illness.pdf" class="download">Sickness and Illness</a
+        >
+      </li>
+      <li>
+        <a href="/administration-of-medication.pdf" class="download"
+          >Administration of Medication</a
+        >
+      </li>
+      <li>
+        <a href="/accidents-incidents-first_aid.pdf" class="download"
+          >Accidents, Incidents and First-aid</a
+        >
+      </li>
+      <li>
+        <a href="/hygiene.pdf" class="download">Hygiene</a>
+      </li>
+      <li>
+        <a href="/behaviour-management.pdf" class="download"
+          >Behaviour Management</a
+        >
+      </li>
+      <li>
+        <a href="/healthy-eating.pdf" class="download">Healthy Eating</a>
+      </li>
+      <li>
+        <a href="/food-handling.pdf" class="download">Food Handling</a>
+      </li>
     </ul>
   </SectionLayout>
 </Layout>
 
 <script>
-  const token = sessionStorage.getItem("_mg");
+  import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+  import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
   const links = document.querySelectorAll(".download");
   links.forEach((el) => {
-    el.addEventListener("click", (e) => {
+    el.addEventListener("click", async (e) => {
       e.preventDefault();
 
       const el = e.target as HTMLElement;
-      const url = el.getAttribute("href")!;
+      const fileName = el.getAttribute("href")!;
 
-      fetch(url, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
+      const client = new S3Client({
+        region: "eu-west-2",
+        credentials: fromCognitoIdentityPool({
+          identityPoolId: "eu-west-2:10ec9814-d012-4768-b0ff-02d71d13ed2e",
+          clientConfig: { region: "eu-west-2" },
+        }),
       });
+
+      const params = {
+        Bucket: "montessori-garden",
+        Key: `docs/procedures-policies${fileName}`,
+      };
+      const command = new GetObjectCommand(params);
+
+      try {
+        const response = await client.send(command);
+        if (response.Body) {
+          const array = await response.Body.transformToByteArray();
+          const blob = new Blob([array], { type: "application/pdf" });
+          const file = new File([blob], fileName);
+          const url = URL.createObjectURL(file);
+
+          window.open(url, "_blank");
+        }
+      } catch (error: any) {
+        alert("Error: " + error);
+      }
     });
   });
 </script>

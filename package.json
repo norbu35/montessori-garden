@@ -11,6 +11,9 @@
     "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.303.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.303.0",
+    "@aws-sdk/credential-providers": "^3.303.0",
     "@fontsource/caveat": "^4.5.10",
     "@fontsource/handlee": "^4.5.9",
     "@fontsource/lato": "^4.5.10",
