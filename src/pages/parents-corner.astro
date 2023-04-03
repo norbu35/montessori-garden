@@ -110,6 +110,12 @@ if (token) {
   import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
   import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
+  history.pushState(
+    {},
+    "Parents' Corner | Montessori Garden",
+    "/parents-corner"
+  );
+
   const links = document.querySelectorAll(".download");
   links.forEach((el) => {
     el.addEventListener("click", async (e) => {
